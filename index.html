@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minh Tùng Studio (MTS) — Sản Xuất Túi / Balo Tại Việt Nam</title>
+<meta name="description" content="Minh Tùng Studio chuyên gia công túi, balo, cặp và phụ kiện da cho thương hiệu thời trang. OEM/ODM — MOQ 300. Sản xuất tại Việt Nam.">
+<meta property="og:title" content="Minh Tùng Studio — OEM Bag & Backpack Manufacturer Vietnam">
+<meta property="og:description" content="Custom bag manufacturing in Vietnam. From 300 pieces. OEM/ODM backpacks, sling bags, totes, duffels for fashion brands.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://minhtungstudio.com">
+<meta name="keywords" content="gia công túi xách TP.HCM, OEM backpack Vietnam, custom bag manufacturer, sản xuất balo số lượng ít, OEM sling bag Vietnam">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',-apple-system,sans-serif;color:#333;background:#F5F0EB;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* ===== VARIABLES ===== */
+:root{
+  --primary:#1A1A1A;
+  --gold:#C8A96E;
+  --accent:#F5F0EB;
+  --text:#333;
+  --muted:#888;
+  --border:#E5DDD5;
+  --success:#2E7D32;
+  --max-w:1200px;
+  --space-xs:8px;
+  --space-sm:16px;
+  --space-md:24px;
+  --space-lg:48px;
+  --space-xl:80px;
+  --space-2xl:120px;
+}
+
+/* ===== LANGUAGE TOGGLE SYSTEM ===== */
+[lang="en"]{display:none}
+body.show-en [lang="vi"]{display:none}
+body.show-en [lang="en"]{display:block}
+
+/* ===== NAVIGATION ===== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:#F5F0EB;border-bottom:1px solid var(--border);
+  height:64px;
+}
+.nav-inner{
+  max-width:var(--max-w);margin:0 auto;padding:0 var(--space-md);
+  display:flex;align-items:center;justify-content:space-between;height:100%;
+}
+.nav-logo{
+  font-size:1.05rem;font-weight:700;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--gold);
+}
+.nav-links{display:flex;gap:var(--space-md);align-items:center}
+.nav-links a{
+  font-size:0.85rem;font-weight:500;color:var(--text);
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--gold)}
+.lang-toggle{
+  background:none;border:1px solid var(--border);border-radius:4px;
+  padding:4px 10px;font-family:'Inter',sans-serif;font-size:0.8rem;
+  font-weight:600;color:var(--text);cursor:pointer;transition:all 0.2s;
+}
+.lang-toggle:hover{border-color:var(--gold);color:var(--gold)}
+.nav-cta{
+  background:var(--success);color:#fff;padding:8px 18px;border-radius:4px;
+  font-size:0.8rem;font-weight:600;transition:background 0.2s;
+}
+.nav-cta:hover{background:#236b29}
+
+/* Hamburger */
+.hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--primary);transition:all 0.3s}
+#menu-toggle{display:none}
+
+/* ===== SECTIONS COMMON ===== */
+section{padding:var(--space-xl) var(--space-md)}
+.section-inner{max-width:var(--max-w);margin:0 auto}
+.section-title{
+  font-size:2rem;font-weight:700;margin-bottom:var(--space-sm);
+  color:var(--primary);
+}
+.section-sub{
+  font-size:1rem;color:var(--muted);margin-bottom:var(--space-lg);
+  max-width:640px;
+}
+.text-gold{color:var(--gold)}
+
+/* ===== HERO ===== */
+#hero{
+  background:var(--primary);color:#fff;min-height:80vh;
+  display:flex;align-items:center;padding-top:64px;
+}
+.hero-content{max-width:var(--max-w);margin:0 auto;padding:var(--space-xl) var(--space-md)}
+.hero-h1{
+  font-size:clamp(2rem,5vw,3.5rem);font-weight:800;line-height:1.15;
+  margin-bottom:var(--space-sm);
+}
+.hero-h2{
+  font-size:clamp(1rem,2.5vw,1.25rem);color:var(--gold);font-weight:600;
+  margin-bottom:var(--space-md);letter-spacing:0.02em;
+}
+.hero-p{
+  font-size:1rem;color:#ccc;max-width:640px;margin-bottom:var(--space-lg);
+  line-height:1.7;
+}
+.hero-btns{display:flex;gap:var(--space-sm);flex-wrap:wrap;margin-bottom:var(--space-xl)}
+.btn-primary{
+  background:var(--gold);color:#fff;padding:14px 32px;border-radius:4px;
+  font-weight:600;font-size:0.95rem;transition:background 0.2s;display:inline-block;
+}
+.btn-primary:hover{background:#b8974e}
+.btn-secondary{
+  border:1px solid #fff;color:#fff;padding:14px 32px;border-radius:4px;
+  font-weight:600;font-size:0.95rem;transition:all 0.2s;display:inline-block;
+}
+.btn-secondary:hover{background:rgba(255,255,255,0.1)}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-md);
+  max-width:600px;
+}
+.stat-num{
+  font-family:'JetBrains Mono','SF Mono',monospace;font-size:1.5rem;font-weight:600;color:#fff;
+}
+.stat-label{font-size:0.8rem;color:var(--muted);margin-top:4px}
+
+/* ===== TRUST STRIP ===== */
+#trust{
+  background:var(--accent);padding:var(--space-lg) var(--space-md);text-align:center;
+}
+#trust p{font-size:0.9rem;color:var(--muted);margin-bottom:var(--space-md)}
+.partner-list{
+  display:flex;flex-wrap:wrap;gap:var(--space-sm);justify-content:center;
+}
+.partner-item{
+  border:1px solid var(--border);border-radius:4px;padding:10px 20px;
+  font-size:0.85rem;font-weight:600;color:#666;
+}
+
+/* ===== CAPABILITIES ===== */
+#capabilities{background:#fff}
+.caps-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:var(--space-md);
+}
+.cap-card{
+  background:var(--accent);padding:var(--space-md);border-radius:0;
+  box-shadow:0 1px 3px rgba(0,0,0,0.06);
+}
+.cap-icon{font-size:2rem;margin-bottom:var(--space-sm)}
+.cap-title{font-size:1rem;font-weight:700;color:var(--gold);text-transform:uppercase;margin-bottom:var(--space-xs)}
+.cap-text{font-size:0.85rem;color:#555;line-height:1.6}
+
+/* ===== PROCESS TIMELINE ===== */
+#process{background:var(--accent)}
+.process-steps{
+  display:flex;flex-wrap:wrap;gap:0;justify-content:center;
+  position:relative;max-width:900px;margin:0 auto;
+}
+.process-step{
+  flex:1 1 120px;text-align:center;padding:var(--space-md) var(--space-sm);
+  position:relative;
+}
+.step-num{
+  width:44px;height:44px;border-radius:50%;background:#fff;
+  border:2px solid var(--gold);color:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'JetBrains Mono',monospace;font-weight:600;
+  margin:0 auto var(--space-xs);
+}
+.step-label{font-size:0.8rem;font-weight:600;color:var(--primary)}
+.step-sub{font-size:0.7rem;color:var(--muted)}
+
+/* ===== ABOUT ===== */
+#about{background:#fff}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);
+  align-items:start;
+}
+.about-text p{margin-bottom:var(--space-sm);font-size:0.95rem;color:#555}
+
+/* ===== SERVICES ===== */
+#services{background:var(--accent)}
+.services-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:var(--space-md);
+}
+.service-card{
+  background:#fff;padding:var(--space-md);
+  box-shadow:0 1px 3px rgba(0,0,0,0.06);
+}
+.service-card h4{font-size:1rem;font-weight:700;margin-bottom:var(--space-xs)}
+.service-card p{font-size:0.85rem;color:#555;line-height:1.6}
+
+.lead-time-table{
+  width:100%;border-collapse:collapse;margin-top:var(--space-md);
+  font-size:0.85rem;
+}
+.lead-time-table th,.lead-time-table td{
+  padding:10px var(--space-sm);text-align:left;border-bottom:1px solid var(--border);
+}
+.lead-time-table th{font-weight:600;color:var(--gold);text-transform:uppercase;font-size:0.75rem}
+.lead-time-table td{color:#555}
+
+/* ===== PRODUCTS ===== */
+#products{background:#fff}
+.prod-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:var(--space-md);
+}
+.prod-card{
+  background:var(--accent);padding:var(--space-md);
+  box-shadow:0 1px 3px rgba(0,0,0,0.06);
+}
+.prod-card h4{font-size:1rem;font-weight:700;margin-bottom:var(--space-xs)}
+.prod-card p{font-size:0.82rem;color:#555;line-height:1.6}
+.prod-card .tags{
+  display:flex;flex-wrap:wrap;gap:4px;margin-top:var(--space-sm);
+}
+.prod-card .tags span{
+  background:var(--border);padding:2px 8px;border-radius:2px;
+  font-size:0.7rem;color:#555;
+}
+
+/* ===== QUALITY ===== */
+#quality{background:var(--accent)}
+.qc-steps{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:var(--space-md);
+}
+.qc-step{
+  background:#fff;padding:var(--space-md);
+  box-shadow:0 1px 3px rgba(0,0,0,0.06);
+}
+.qc-step h4{font-size:0.95rem;font-weight:700;margin-bottom:var(--space-xs)}
+.qc-step p{font-size:0.82rem;color:#555;line-height:1.6}
+
+/* ===== CERTIFICATIONS ===== */
+#certifications{background:var(--primary);color:#fff;text-align:center}
+#certifications .section-title{color:#fff}
+#certifications .section-sub{color:#999;margin:0 auto var(--space-lg)}
+.cert-badges{
+  display:flex;flex-wrap:wrap;gap:var(--space-sm);justify-content:center;
+}
+.cert-badge{
+  border:1px solid #fff;border-radius:24px;padding:10px 24px;
+  font-size:0.9rem;font-weight:600;color:#fff;
+}
+
+/* ===== CTA ===== */
+#cta{
+  background:var(--primary);color:#fff;text-align:center;
+  padding:var(--space-2xl) var(--space-md);
+}
+#cta h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:var(--space-sm)}
+#cta p{color:#999;margin-bottom:var(--space-lg);max-width:500px;margin-left:auto;margin-right:auto}
+.cta-btn{
+  background:var(--gold);color:#fff;padding:16px 40px;border-radius:4px;
+  font-weight:700;font-size:1rem;display:inline-block;transition:background 0.2s;
+}
+.cta-btn:hover{background:#b8974e}
+.cta-phone{margin-top:var(--space-md);color:var(--muted);font-size:0.85rem}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--accent);padding:var(--space-xl) var(--space-md);
+  border-top:1px solid var(--border);
+}
+.footer-inner{
+  max-width:var(--max-w);margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1.5fr;gap:var(--space-xl);
+}
+footer h4{font-size:0.9rem;font-weight:700;margin-bottom:var(--space-sm);color:var(--primary)}
+footer p,footer a{font-size:0.85rem;color:#555;line-height:1.8}
+footer a:hover{color:var(--gold)}
+.footer-logo{font-size:1.05rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--space-xs)}
+.footer-bottom{
+  max-width:var(--max-w);margin:var(--space-lg) auto 0;
+  padding-top:var(--space-md);border-top:1px solid var(--border);
+  text-align:center;font-size:0.8rem;color:var(--muted);
+}
+
+/* ===== CONTACT SECTION ===== */
+#contact{background:#fff}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);
+}
+.contact-info p{margin-bottom:var(--space-sm);font-size:0.9rem;color:#555}
+.contact-info strong{color:var(--primary)}
+.contact-form{}
+.form-group{margin-bottom:var(--space-sm)}
+.form-group label{
+  display:block;font-size:0.8rem;font-weight:600;margin-bottom:4px;color:var(--text);
+}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:4px;
+  font-family:'Inter',sans-serif;font-size:0.9rem;background:#fff;color:var(--text);
+}
+.form-group textarea{min-height:100px;resize:vertical}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  outline:none;border-color:var(--gold);
+}
+.submit-btn{
+  background:var(--success);color:#fff;padding:12px 28px;border:none;
+  border-radius:4px;font-weight:600;font-size:0.9rem;cursor:pointer;
+  transition:background 0.2s;
+}
+.submit-btn:hover{background:#236b29}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .nav-links{
+    position:fixed;top:64px;left:0;right:0;background:var(--accent);
+    flex-direction:column;padding:var(--space-md);
+    border-bottom:1px solid var(--border);
+    transform:translateY(-120%);transition:transform 0.3s;
+    gap:var(--space-sm);
+  }
+  .hamburger{display:flex}
+  #menu-toggle:checked ~ .nav-links{transform:translateY(0)}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:1fr;text-align:center}
+  .footer-inner{grid-template-columns:1fr;gap:var(--space-md)}
+  section{padding:var(--space-lg) var(--space-sm)}
+  .process-step{flex:1 1 80px}
+}
+@media(max-width:480px){
+  .hero-btns{flex-direction:column}
+  .btn-primary,.btn-secondary{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">Minh Tùng Studio</a>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="hamburger"><span></span><span></span><span></span></label>
+    <div class="nav-links">
+      <a href="#about" lang="vi">Giới Thiệu</a>
+      <a href="#about" lang="en">About</a>
+      <a href="#services" lang="vi">Dịch Vụ</a>
+      <a href="#services" lang="en">Services</a>
+      <a href="#products" lang="vi">Sản Phẩm</a>
+      <a href="#products" lang="en">Products</a>
+      <a href="#quality" lang="vi">Chất Lượng</a>
+      <a href="#quality" lang="en">Quality</a>
+      <a href="#contact" lang="vi">Liên Hệ</a>
+      <a href="#contact" lang="en">Contact</a>
+      <button class="lang-toggle" id="langToggle" onclick="toggleLang()">EN 🌐</button>
+      <a href="#contact" class="nav-cta" lang="vi">Bắt Đầu →</a>
+      <a href="#contact" class="nav-cta" lang="en">Start →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-content">
+    <div lang="vi">
+      <h1 class="hero-h1">Gia Công Túi / Balo<br>Tại Việt Nam</h1>
+      <h2 class="hero-h2">Từ 300 Sản Phẩm</h2>
+      <p class="hero-p">Minh Tùng Studio chuyên sản xuất túi, balo, cặp cho các thương hiệu thời trang, streetwear và startup. OEM / ODM — MOQ linh hoạt, báo giá minh bạch.</p>
+    </div>
+    <div lang="en">
+      <h1 class="hero-h1">Custom Bag Manufacturing<br>in Vietnam</h1>
+      <h2 class="hero-h2">From 300 Pieces</h2>
+      <p class="hero-p">Minh Tùng Studio partners with fashion brands, streetwear labels, and startups to develop and manufacture custom backpacks, sling bags, duffels, totes, and leather accessories.</p>
+    </div>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary" lang="vi">Bắt Đầu Dự Án →</a>
+      <a href="#contact" class="btn-primary" lang="en">Start Your Project →</a>
+      <a href="#capabilities" class="btn-secondary" lang="vi">Xem Năng Lực →</a>
+      <a href="#capabilities" class="btn-secondary" lang="en">View Capabilities →</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">6+</div><div class="stat-label" lang="vi">Thương Hiệu</div><div class="stat-label" lang="en">Brands</div></div>
+      <div><div class="stat-num">50K+</div><div class="stat-label" lang="vi">Sản Phẩm/Năm</div><div class="stat-label" lang="en">Units/Year</div></div>
+      <div><div class="stat-num">300</div><div class="stat-label" lang="vi">MOQ</div><div class="stat-label" lang="en">MOQ</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST STRIP ===== -->
+<section id="trust">
+  <div class="section-inner">
+    <p lang="vi">Được tin tưởng bởi các thương hiệu Việt:</p>
+    <p lang="en">Trusted by Vietnamese brands:</p>
+    <div class="partner-list">
+      <span class="partner-item">TeeLab</span>
+      <span class="partner-item">98STU</span>
+      <span class="partner-item">OnFire Club</span>
+      <span class="partner-item">JMP</span>
+      <span class="partner-item">Elever</span>
+      <span class="partner-item">Owner Studio</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CAPABILITIES ===== -->
+<section id="capabilities">
+  <div class="section-inner">
+    <h2 class="section-title" lang="vi">Năng Lực Sản Xuất</h2>
+    <h2 class="section-title" lang="en">Our Capabilities</h2>
+    <p class="section-sub" lang="vi">Từ vật liệu đến thành phẩm — chúng tôi làm chủ mọi công đoạn.</p>
+    <p class="section-sub" lang="en">From material sourcing to finished product — we handle every step.</p>
+    <div class="caps-grid">
+      <div class="cap-card">
+        <div class="cap-icon">🎒</div>
+        <div class="cap-title" lang="vi">Sản Phẩm</div>
+        <div class="cap-title" lang="en">Products</div>
+        <div class="cap-text" lang="vi">Backpack / Balo, Sling / Túi chéo, Duffel / Túi du lịch, Tote, Phụ kiện da</div>
+        <div class="cap-text" lang="en">Backpacks, Sling Bags, Duffels, Totes, Leather Accessories</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">🧵</div>
+        <div class="cap-title" lang="vi">Nguyên Liệu</div>
+        <div class="cap-title" lang="en">Materials</div>
+        <div class="cap-text" lang="vi">Da thật, da PU, Canvas / Vải bố, Nylon, Polyester, Khóa / Phụ kiện</div>
+        <div class="cap-text" lang="en">Genuine Leather, PU Leather, Canvas, Nylon, Polyester, Hardware</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">📐</div>
+        <div class="cap-title" lang="vi">Phát Triển</div>
+        <div class="cap-title" lang="en">Development</div>
+        <div class="cap-text" lang="vi">Techpack → Mẫu thử. Sample → Sản xuất. MOQ 300 / 1000.</div>
+        <div class="cap-text" lang="en">Techpack → Sample. Sample → Production. MOQ 300 / 1000.</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">✅</div>
+        <div class="cap-title" lang="vi">Chất Lượng</div>
+        <div class="cap-title" lang="en">Quality</div>
+        <div class="cap-text" lang="vi">QC nội bộ theo AQL 2.5. Báo cáo kiểm định từng lô. Ảnh thành phẩm trước khi giao.</div>
+        <div class="cap-text" lang="en">In-house QC per AQL 2.5. Per-batch inspection report. Photos before shipment.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS TIMELINE ===== -->
+<section id="process">
+  <div class="section-inner">
+    <h2 class="section-title" lang="vi">Từ Ý Tưởng Đến Sản Phẩm</h2>
+    <h2 class="section-title" lang="en">From Idea to Delivery</h2>
+    <p class="section-sub" lang="vi">Quy trình 6 bước — minh bạch, đúng tiến độ.</p>
+    <p class="section-sub" lang="en">6-step process — transparent, on schedule.</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div class="step-label" lang="vi">Tiếp Nhận</div>
+        <div class="step-label" lang="en">Inquiry</div>
+        <div class="step-sub" lang="vi">1–2 ngày</div>
+        <div class="step-sub" lang="en">1–2 days</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div class="step-label" lang="vi">Báo Giá</div>
+        <div class="step-label" lang="en">Quote</div>
+        <div class="step-sub" lang="vi">2–3 ngày</div>
+        <div class="step-sub" lang="en">2–3 days</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div class="step-label" lang="vi">Mẫu Thử</div>
+        <div class="step-label" lang="en">Sample</div>
+        <div class="step-sub" lang="vi">7–10 ngày</div>
+        <div class="step-sub" lang="en">7–10 days</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div class="step-label" lang="vi">Sản Xuất</div>
+        <div class="step-label" lang="en">Production</div>
+        <div class="step-sub" lang="vi">10–25 ngày</div>
+        <div class="step-sub" lang="en">10–25 days</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">5</div>
+        <div class="step-label" lang="vi">Kiểm Định</div>
+        <div class="step-label" lang="en">QC</div>
+        <div class="step-sub" lang="vi">1–2 ngày</div>
+        <div class="step-sub" lang="en">1–2 days</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">6</div>
+        <div class="step-label" lang="vi">Giao Hàng</div>
+        <div class="step-label" lang="en">Delivery</div>
+        <div class="step-sub"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="section-inner">
+    <h2 class="section-title" lang="vi">Về Minh Tùng Studio</h2>
+    <h2 class="section-title" lang="en">About Minh Tùng Studio</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <div lang="vi">
+          <p>Minh Tùng Studio (MTS) là xưởng sản xuất túi / balo tại TP.HCM, chuyên gia công cho các brand thời trang, streetwear và phụ kiện. Đối tác hiện tại gồm TeeLab, 98STU (10K+ túi tote đã bán), OnFire Club, JMP, Elever và Owner Studio.</p>
+          <p>Chúng tôi không phải trung gian — tự cắt, may, ép logo, QC và đóng gói tại xưởng. Mỗi sản phẩm đều qua tay đội ngũ từ khâu tạo mẫu đến thành phẩm.</p>
+          <p><strong>Phương châm:</strong> MTS không chỉ nhận gia công, còn tư vấn chất liệu, tối ưu chi phí để brand giữ margin tốt nhất. Khi brand của bạn lớn, chúng tôi cũng lớn theo.</p>
+        </div>
+        <div lang="en">
+          <p>Minh Tùng Studio (MTS) is a Ho Chi Minh City-based bag and backpack manufacturer. We work directly with fashion brands, streetwear labels, and startup accessories lines — from emerging designers to established names like TeeLab, 98STU (100K+ totes sold), OnFire Club, JMP, Elever, and Owner Studio.</p>
+          <p>We are not a trading company. We cut, sew, print, emboss, QC, and pack under one roof. Every bag that leaves our workshop has been handled by our team — from pattern to finished product.</p>
+          <p><strong>Our belief:</strong> A manufacturing partner should do more than take orders. We help clients choose materials that save cost without sacrificing feel, suggest construction improvements, and keep margins healthy — because when your brand grows, we grow with you.</p>
+        </div>
+      </div>
+      <div>
+        <div class="cap-card" style="background:var(--accent)">
+          <h4 style="font-weight:700;margin-bottom:var(--space-sm)" lang="vi">Thông Tin Xưởng</h4>
+          <h4 style="font-weight:700;margin-bottom:var(--space-sm)" lang="en">Facility Info</h4>
+          <div style="font-size:0.85rem;color:#555;line-height:2">
+            <p lang="vi">📍 TP.HCM, Việt Nam</p>
+            <p lang="en">📍 Ho Chi Minh City, Vietnam</p>
+            <p lang="vi">🏭 Cắt, may, logo, QC, đóng gói — tại chỗ</p>
+            <p lang="en">🏭 In-house cutting, sewing, logo, QC, packing</p>
+            <p lang="vi">👨‍🏭 Lãnh đạo: Nguyễn Mạnh Tùng (Tommy)</p>
+            <p lang="en">👨‍🏭 Led by Nguyen Manh Tung (Tommy)</p>
+            <p lang="vi">📦 Công suất: 300–1,000+ sản phẩm / SKU</p>
+            <p lang="en">📦 Capacity: 300–1,000+ units per SKU</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services">
+  <div class="section-inner">
+    <h2 class="section-title" lang="vi">Dịch Vụ Gia Công</h2>
+    <h2 class="section-title" lang="en">Manufacturing Services</h2>
+    <p class="section-sub" lang="vi">Từ OEM đến ODM — chúng tôi hiện thực hóa thiết kế của bạn.</p>
+    <p class="section-sub" lang="en">From OEM to ODM — we turn your design into reality.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <h4 lang="vi">🔧 OEM — Gia Công Theo Mẫu</h4>
+        <h4 lang="en">🔧 OEM — Manufacture Your Design</h4>
+        <p lang="vi">Bạn gửi techpack hoặc sản phẩm mẫu. Chúng tôi sourcing vật liệu, tạo mẫu và sản xuất hàng loạt. Bạn kiểm tra, duyệt, chúng tôi giao hàng.</p>
+        <p lang="en">You send the design, techpack, or reference product. We source materials, produce samples, and manufacture bulk. You approve, we deliver.</p>
+      </div>
+      <div class="service-card">
+        <h4 lang="vi">🎨 ODM — Tối Ưu Thiết Kế & Chất Liệu</h4>
+        <h4 lang="en">🎨 ODM — Design & Material Optimization</h4>
+        <p lang="vi">Chưa chắc về chất liệu? Chúng tôi đề xuất alternatives — giữ chất lượng, giảm 10–20% chi phí. Tối ưu đường may, pocket layout, hardware.</p>
+        <p lang="en">Not sure about materials? We recommend alternatives — same feel, 10–20% cost reduction. Optimize stitch patterns, pocket layouts, hardware.</p>
+      </div>
+      <div class="service-card">
+        <h4 lang="vi">📦 Additional Services</h4>
+        <h4 lang="en">📦 Additional Services</h4>
+        <p lang="vi">Ép logo, đóng gói theo chuẩn Shopee/TikTok, phối hợp vận chuyển. </p>
+        <p lang="en">Logo engraving/embossing, heat transfer printing, packaging per Shopee/TikTok standards, logistics coordination.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:1.25rem;font-weight:700;margin:var(--space-lg) 0 var(--space-md)" lang="vi">MOQ & Bảng Giá</h3>
+    <h3 style="font-size:1.25rem;font-weight:700;margin:var(--space-lg) 0 var(--space-md)" lang="en">MOQ & Pricing</h3>
+    <table class="lead-time-table">
+      <thead>
+        <tr><th lang="vi">Hạng Mục</th><th lang="en">Tier</th><th>MOQ</th><th lang="vi">Ưu Đãi</th><th lang="en">Advantage</th></tr>
+      </thead>
+      <tbody>
+        <tr><td lang="vi">Tiêu chuẩn</td><td lang="en">Standard</td><td>300 pcs / SKU</td><td lang="vi">Giá cơ bản</td><td lang="en">Base price</td></tr>
+        <tr><td lang="vi">Số lượng lớn</td><td lang="en">Volume</td><td>1,000+ pcs / SKU</td><td lang="vi">Giảm 8–15%</td><td lang="en">8–15% off</td></tr>
+        <tr><td lang="vi">Đa SKU</td><td lang="en">Multi-SKU</td><td>2+ SKUs</td><td lang="vi">Thêm 5% tổng đơn</td><td lang="en">5% off total</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size:1.25rem;font-weight:700;margin:var(--space-lg) 0 var(--space-md)" lang="vi">Thời Gian Sản Xuất</h3>
+    <h3 style="font-size:1.25rem;font-weight:700;margin:var(--space-lg) 0 var(--space-md)" lang="en">Lead Times</h3>
+    <table class="lead-time-table">
+      <thead>
+        <tr><th lang="vi">Sản Phẩm</th><th lang="en">Product</th><th lang="vi">Chất Liệu</th><th lang="en">Materials</th><th lang="vi">Thời Gian</th><th lang="en">Lead Time</th></tr>
+      </thead>
+      <tbody>
+        <tr><td lang="vi">Tote gấp gọn</td><td lang="en">Foldable Tote</td><td>Canvas + da</td><td></td><td>10–18 ngày</td><td>10–18 days</td></tr>
+        <tr><td lang="vi">Tote cấu trúc</td><td lang="en">Structured Tote</td><td>PU da</td><td></td><td>15–25 ngày</td><td>15–25 days</td></tr>
+        <tr><td lang="vi">Túi đeo chéo / Sling</td><td lang="en">Sling / Crossbody</td><td>PU / Canvas</td><td></td><td>15–25 ngày</td><td>15–25 days</td></tr>
+        <tr><td lang="vi">Balo</td><td lang="en">Backpack</td><td>Hỗn hợp</td><td></td><td>20–25 ngày</td><td>20–25 days</td></tr>
+        <tr><td lang="vi">Túi du lịch / Duffel</td><td lang="en">Duffel Bag</td><td>Nhiều loại</td><td></td><td>20–25 ngày</td><td>20–25 days</td></tr>
+        <tr><td lang="vi">Phụ kiện da</td><td lang="en">Leather Accessories</td><td>Da thật / PU</td><td></td><td>10–15 ngày</td><td>10–15 days</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section id="products">
+  <div class="section-inner">
+    <h2 class="section-title" lang="vi">Sản Phẩm Của Chúng Tôi</h2>
+    <h2 class="section-title" lang="en">What We Make</h2>
+    <p class="section-sub" lang="vi">Danh mục sản phẩm cho đối tác B2B.</p>
+    <p class="section-sub" lang="en">Product categories for B2B partners.</p>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <h4 lang="vi">🎒 Balo</h4>
+        <h4 lang="en">🎒 Backpacks</h4>
+        <p lang="vi">Balo ngày, laptop, thời trang. Chất liệu Canvas, PU da, hỗn hợp. Ngăn đệm, đa túi, hardware điểm nhấn.</p>
+        <p lang="en">Daypacks, laptop backpacks, fashion backpacks. Canvas, PU leather, mixed materials. Padded compartments, multi-pocket.</p>
+        <div class="tags"><span>Canvas</span><span>PU Leather</span><span>20–25 days</span></div>
+      </div>
+      <div class="prod-card">
+        <h4 lang="vi">👜 Túi Đeo Chéo / Sling</h4>
+        <h4 lang="en">👜 Sling & Crossbody Bags</h4>
+        <p lang="vi">Mini sling, túi vai, crossbody messenger. PU da, canvas, nylon. Dây điều chỉnh, ngăn khóa kéo.</p>
+        <p lang="en">Mini slings, shoulder bags, crossbody messengers. PU leather, canvas, nylon. Adjustable straps, zip compartments.</p>
+        <div class="tags"><span>PU Leather</span><span>Canvas</span><span>15–25 days</span></div>
+      </div>
+      <div class="prod-card">
+        <h4 lang="vi">🧳 Túi Du Lịch / Duffel</h4>
+        <h4 lang="en">🧳 Duffel Bags & Weekenders</h4>
+        <p lang="vi">Gym duffel, travel weekender, mini duffle. Canvas, PU da, vải phủ. Dây đeo tháo rời, ngăn giày.</p>
+        <p lang="en">Gym duffels, travel weekender bags, mini duffles. Canvas, PU leather, coated fabrics. Detachable straps, shoe compartments.</p>
+        <div class="tags"><span>Canvas</span><span>PU Leather</span><span>20–25 days</span></div>
+      </div>
+      <div class="prod-card">
+        <h4 lang="vi">🛍️ Túi Tote</h4>
+        <h4 lang="en">🛍️ Tote Bags</h4>
+        <p lang="vi">Tote cấu trúc, tote gấp gọn, shopping tote. Canvas (gấp gọn), PU da (cấu trúc). Khóa từ, quai gia cố.</p>
+        <p lang="en">Structured totes, foldable totes, shopping totes. Canvas (foldable), PU leather (structured). Magnetic closures, reinforced handles.</p>
+        <div class="tags"><span>Canvas</span><span>PU Leather</span><span>10–25 days</span></div>
+      </div>
+      <div class="prod-card">
+        <h4 lang="vi">👛 Phụ Kiện Da</h4>
+        <h4 lang="en">👛 Leather Accessories</h4>
+        <p lang="vi">Card holder, ví, túi nhỏ, móc khóa. Da thật hoặc PU. Lý tưởng cho quà tặng kèm, bộ sưu tập phụ kiện.</p>
+        <p lang="en">Card holders, wallets, small pouches, keychains. Real or PU leather. Ideal for gift-with-purchase, accessory collections.</p>
+        <div class="tags"><span>Real Leather</span><span>PU Leather</span><span>10–15 days</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUALITY ===== -->
+<section id="quality">
+  <div class="section-inner">
+    <h2 class="section-title" lang="vi">Kiểm Soát Chất Lượng</h2>
+    <h2 class="section-title" lang="en">Quality Control</h2>
+    <p class="section-sub" lang="vi">Từng lô hàng được kiểm định. Từng chi tiết được ghi nhận.</p>
+    <p class="section-sub" lang="en">Every batch inspected. Every detail documented.</p>
+    <div class="qc-steps">
+      <div class="qc-step">
+        <h4 lang="vi">📦 Nguyên Liệu Đầu Vào</h4>
+        <h4 lang="en">📦 Incoming Materials</h4>
+        <p lang="vi">Kiểm tra lỗi vải, đối chiếu màu sắc, chất lượng khóa/phụ kiện trước khi cắt.</p>
+        <p lang="en">Fabric defects, color match vs. swatch, hardware quality checked before cutting.</p>
+      </div>
+      <div class="qc-step">
+        <h4 lang="vi">🧵 Trong Sản Xuất</h4>
+        <h4 lang="en">🧵 In-line Production</h4>
+        <p lang="vi">Kiểm tra lực chỉ, căn chỉnh đường may, vị trí túi — trong quá trình ráp.</p>
+        <p lang="en">Stitch tension, seam alignment, pocket placement checked during assembly.</p>
+      </div>
+      <div class="qc-step">
+        <h4 lang="vi">🔍 Trước Khi Hoàn Thiện</h4>
+        <h4 lang="en">🔍 Pre-finishing</h4>
+        <p lang="vi">Kiểm tra form, đối xứng, chức năng khóa kéo — trước khi gắn hardware/logo.</p>
+        <p lang="en">Form check, symmetry, zipper function verified before hardware/logo attachment.</p>
+      </div>
+      <div class="qc-step">
+        <h4 lang="vi">✅ Kiểm Định Cuối</h4>
+        <h4 lang="en">✅ Final Inspection</h4>
+        <p lang="vi">100% lô hàng: đường may, hardware, logo, sạch sẽ, đóng gói. Ảnh gửi khách duyệt.</p>
+        <p lang="en">100% of batch: stitch quality, hardware function, logo placement, cleanliness, packaging. Photos sent for sign-off.</p>
+      </div>
+    </div>
+    <div style="margin-top:var(--space-lg);padding:var(--space-md);background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+      <p style="font-size:0.9rem;color:#555;line-height:1.7;font-style:italic" lang="vi">
+        "Chúng tôi tuân theo tiêu chuẩn sản xuất Việt Nam và duy trì QC nội bộ nghiêm ngặt. Với khách hàng yêu cầu chứng chỉ quốc tế, chúng tôi sẵn sàng cho bên thứ ba kiểm định và đang hướng tới BSCI, ISO 9001."
+      </p>
+      <p style="font-size:0.9rem;color:#555;line-height:1.7;font-style:italic" lang="en">
+        "We follow Vietnamese national production standards and maintain rigorous in-house QC. For buyers requiring formal certifications, we welcome third-party audits and are actively working toward BSCI and ISO 9001 compliance."
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CERTIFICATIONS ===== -->
+<section id="certifications">
+  <div class="section-inner">
+    <h2 class="section-title" lang="vi">Được Kiểm Định, Đạt Chuẩn</h2>
+    <h2 class="section-title" lang="en">Audited, Qualified, Accountable</h2>
+    <p class="section-sub" lang="vi">Chúng tôi đang hướng tới các chứng chỉ quốc tế — minh bạch về lộ trình.</p>
+    <p class="section-sub" lang="en">We're pursuing international certifications — transparent about our roadmap.</p>
+    <div class="cert-badges">
+      <span class="cert-badge">BSCI</span>
+      <span class="cert-badge">REACH</span>
+      <span class="cert-badge">ISO 9001</span>
+      <span class="cert-badge">OEKO-TEX</span>
+      <span class="cert-badge">GRS</span>
+    </div>
+    <p style="margin-top:var(--space-lg);color:#999;font-size:0.85rem;max-width:600px;margin-left:auto;margin-right:auto" lang="vi">
+      Hiện tại MTS vận hành theo tiêu chuẩn sản xuất Việt Nam. Đang tiến hành các bước để đạt BSCI và ISO 9001.
+    </p>
+    <p style="margin-top:var(--space-lg);color:#999;font-size:0.85rem;max-width:600px;margin-left:auto;margin-right:auto" lang="en">
+      MTS currently operates to Vietnamese production standards and is actively working toward BSCI and ISO 9001 certification.
+    </p>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="section-inner">
+    <h2 class="section-title" lang="vi">Liên Hệ & Báo Giá</h2>
+    <h2 class="section-title" lang="en">Start Your Project</h2>
+    <p class="section-sub" lang="vi">Gửi thiết kế của bạn — chúng tôi sẽ báo giá trong vòng 48 giờ, không cam kết.</p>
+    <p class="section-sub" lang="en">Send us your design — we'll quote within 48 hours, no commitment needed.</p>
+    <div class="contact-grid">
+      <div class="contact-form">
+        <form action="mailto:tungnguyenhsr@gmail.com" method="post" enctype="text/plain">
+          <div class="form-group">
+            <label lang="vi">Họ và Tên *</label>
+            <label lang="en">Full Name *</label>
+            <input type="text" name="name" required>
+          </div>
+          <div class="form-group">
+            <label lang="vi">Email *</label>
+            <label lang="en">Email *</label>
+            <input type="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label lang="vi">Điện Thoại / Zalo *</label>
+            <label lang="en">Phone / Zalo *</label>
+            <input type="tel" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label lang="vi">Loại Sản Phẩm *</label>
+            <label lang="en">Product Type *</label>
+            <select name="product" required>
+              <option value="" lang="vi">— Chọn —</option>
+              <option value="" lang="en">— Select —</option>
+              <option lang="vi" value="backpack">Balo / Backpack</option>
+              <option lang="en" value="backpack">Backpack</option>
+              <option lang="vi" value="sling">Túi đeo chéo / Sling</option>
+              <option lang="en" value="sling">Sling / Crossbody</option>
+              <option lang="vi" value="tote">Túi Tote</option>
+              <option lang="en" value="tote">Tote Bag</option>
+              <option lang="vi" value="duffel">Túi du lịch / Duffel</option>
+              <option lang="en" value="duffel">Duffel Bag</option>
+              <option lang="vi" value="accessory">Phụ kiện da</option>
+              <option lang="en" value="accessory">Leather Accessory</option>
+              <option lang="vi" value="other">Khác</option>
+              <option lang="en" value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label lang="vi">Số Lượng Dự Kiến *</label>
+            <label lang="en">Estimated Quantity *</label>
+            <select name="quantity" required>
+              <option value="" lang="vi">— Chọn —</option>
+              <option value="" lang="en">— Select —</option>
+              <option>50–300</option>
+              <option>300–500</option>
+              <option>500–1,000</option>
+              <option>1,000+</option>
+              <option lang="vi">Chưa rõ</option>
+              <option lang="en">Not sure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label lang="vi">Mô Tả Dự Án *</label>
+            <label lang="en">Describe Your Project *</label>
+            <textarea name="description" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn" lang="vi">Gửi Yêu Cầu Báo Giá →</button>
+          <button type="submit" class="submit-btn" lang="en">Request Quote →</button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <div class="cap-card" style="background:var(--accent)">
+          <h4 style="font-weight:700;margin-bottom:var(--space-sm)" lang="vi">Thông Tin Liên Hệ</h4>
+          <h4 style="font-weight:700;margin-bottom:var(--space-sm)" lang="en">Contact Information</h4>
+          <p>📧 <strong>Email:</strong> tungnguyenhsr@gmail.com</p>
+          <p>📱 <strong>Zalo / Phone:</strong> [Liên hệ để biết số]</p>
+          <p>📍 <strong lang="vi">Địa chỉ:</strong><strong lang="en">Address:</strong> TP.HCM, Vietnam</p>
+          <p>🕐 <strong lang="vi">Phản hồi:</strong><strong lang="en">Response:</strong> <span lang="vi">Trong 24h (ngày làm việc)</span><span lang="en">Within 24 hours (business days)</span></p>
+          <div style="margin-top:var(--space-md);padding-top:var(--space-md);border-top:1px solid var(--border)">
+            <p style="font-size:0.85rem;color:#555;line-height:1.7" lang="vi"><strong>Sau khi gửi:</strong> Chúng tôi xem xét yêu cầu trong 24h → Báo giá sơ bộ (48h) → Bạn gửi techpack → Mẫu thử 7–10 ngày → Bạn duyệt → Sản xuất.</p>
+            <p style="font-size:0.85rem;color:#555;line-height:1.7" lang="en"><strong>After you submit:</strong> We review within 24h → Preliminary quote (48h) → You share techpack → Sample in 7–10 days → You approve → Production.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="cta">
+  <div class="section-inner">
+    <h2 lang="vi">Sẵn sàng bắt đầu sản xuất?</h2>
+    <h2 lang="en">Ready to start your production?</h2>
+    <p lang="vi">Kể tôi nghe về dự án của bạn → tôi sẽ phản hồi trong 24h</p>
+    <p lang="en">Tell us about your project → we'll respond within 24h</p>
+    <a href="#contact" class="cta-btn" lang="vi">Bắt Đầu Dự Án →</a>
+    <a href="#contact" class="cta-btn" lang="en">Start Your Project →</a>
+    <p class="cta-phone" lang="vi">Hoặc Zalo: [+84 Liên hệ]</p>
+    <p class="cta-phone" lang="en">Or WhatsApp: [+84 Contact]</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Minh Tùng Studio</div>
+      <p lang="vi">Sản Xuất Túi / Balo Tại Việt Nam 🇻🇳</p>
+      <p lang="en">Bag & Backpack Manufacturing in Vietnam 🇻🇳</p>
+      <p style="margin-top:var(--space-sm);font-size:0.8rem;color:var(--muted)" lang="vi">Xưởng sản xuất OEM — Đối tác cho thương hiệu thời trang, streetwear và startup.</p>
+      <p style="margin-top:var(--space-sm);font-size:0.8rem;color:var(--muted)" lang="en">OEM manufacturing partner for fashion brands, streetwear labels, and startups.</p>
+    </div>
+    <div>
+      <h4 lang="vi">Liên Kết Nhanh</h4>
+      <h4 lang="en">Quick Links</h4>
+      <a href="#about" lang="vi">Giới Thiệu</a><br>
+      <a href="#about" lang="en">About</a><br>
+      <a href="#services" lang="vi">Dịch Vụ</a><br>
+      <a href="#services" lang="en">Services</a><br>
+      <a href="#products" lang="vi">Sản Phẩm</a><br>
+      <a href="#products" lang="en">Products</a><br>
+      <a href="#quality" lang="vi">Chất Lượng</a><br>
+      <a href="#quality" lang="en">Quality</a><br>
+      <a href="#contact" lang="vi">Liên Hệ</a><br>
+      <a href="#contact" lang="en">Contact</a>
+    </div>
+    <div>
+      <h4 lang="vi">Liên Hệ</h4>
+      <h4 lang="en">Contact</h4>
+      <p>📧 tungnguyenhsr@gmail.com</p>
+      <p>📍 TP.HCM, Vietnam</p>
+      <p lang="vi">📱 Zalo: [Liên hệ]</p>
+      <p lang="en">📱 WhatsApp: [Contact]</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Minh Tùng Studio. <span lang="vi">Tất cả quyền được bảo lưu.</span><span lang="en">All rights reserved.</span></p>
+  </div>
+</footer>
+
+<!-- ===== LANGUAGE TOGGLE SCRIPT ===== -->
+<script>
+function toggleLang() {
+  var body = document.body;
+  var btn = document.getElementById('langToggle');
+  body.classList.toggle('show-en');
+  if (body.classList.contains('show-en')) {
+    btn.textContent = 'VI 🌐';
+    document.documentElement.lang = 'en';
+  } else {
+    btn.textContent = 'EN 🌐';
+    document.documentElement.lang = 'vi';
+  }
+}
+</script>
+</body>
+</html>
