@@ -1,7 +1,9 @@
 {
   "name": "mts-bag",
   "version": 2,
-  "public": true,
+  "framework": null,
+  "buildCommand": null,
+  "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false
 }
