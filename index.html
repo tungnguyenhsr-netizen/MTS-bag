@@ -8,7 +8,7 @@
 <meta property="og:title" content="Minh Tùng Studio — OEM Bag & Backpack Manufacturer Vietnam">
 <meta property="og:description" content="Custom bag manufacturing in Vietnam. From 300 pieces. OEM/ODM backpacks, sling bags, totes, duffels for fashion brands.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://minhtungstudio.com">
+<meta property="og:url" content="https://mtsbag.vercel.app">
 <meta name="keywords" content="gia công túi xách TP.HCM, OEM backpack Vietnam, custom bag manufacturer, sản xuất balo số lượng ít, OEM sling bag Vietnam">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
 /* ===== RESET & BASE ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Inter',-apple-system,sans-serif;color:#333;background:#F5F0EB;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:var(--accent);line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
@@ -27,17 +27,18 @@ ul{list-style:none}
   --primary:#1A1A1A;
   --gold:#C8A96E;
   --accent:#F5F0EB;
-  --text:#333;
-  --muted:#888;
-  --border:#E5DDD5;
-  --success:#2E7D32;
+  --text:#1A1A1A;
+  --muted:#8A8175;
+  --border:#E2D9CC;
+  --dark-border:#2A2A2A;
+  --success:#C8A96E;
   --max-w:1200px;
   --space-xs:8px;
   --space-sm:16px;
   --space-md:24px;
   --space-lg:48px;
   --space-xl:80px;
-  --space-2xl:120px;
+  --space-2xl:112px;
 }
 
 /* ===== LANGUAGE TOGGLE SYSTEM ===== */
@@ -72,10 +73,10 @@ nav{
 }
 .lang-toggle:hover{border-color:var(--gold);color:var(--gold)}
 .nav-cta{
-  background:var(--success);color:#fff;padding:8px 18px;border-radius:4px;
+  background:var(--gold);color:var(--primary);padding:8px 18px;border-radius:4px;
   font-size:0.8rem;font-weight:600;transition:background 0.2s;
 }
-.nav-cta:hover{background:#236b29}
+.nav-cta:hover{background:#b8974e}
 
 /* Hamburger */
 .hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px;padding:4px}
@@ -95,6 +96,22 @@ section{padding:var(--space-xl) var(--space-md)}
 }
 .text-gold{color:var(--gold)}
 
+/* ===== MONO LABEL & DIVIDER (tastecode) ===== */
+.mono-label{
+  font-family:'JetBrains Mono','SF Mono',monospace;
+  font-size:0.75rem;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:var(--space-sm);
+  display:block;
+}
+.divider{
+  border:0;height:1px;background:var(--border);
+  margin:0 auto;max-width:var(--max-w);
+}
+#hero .divider,#certifications .divider,#cta .divider{background:var(--dark-border)}
+section{padding:var(--space-2xl) var(--space-md)}
+.section-inner > .section-title:first-of-type{margin-top:0}
+
 /* ===== HERO ===== */
 #hero{
   background:var(--primary);color:#fff;min-height:80vh;
@@ -110,7 +127,7 @@ section{padding:var(--space-xl) var(--space-md)}
   margin-bottom:var(--space-md);letter-spacing:0.02em;
 }
 .hero-p{
-  font-size:1rem;color:#ccc;max-width:640px;margin-bottom:var(--space-lg);
+  font-size:1rem;color:#C8A96E;opacity:0.85;max-width:640px;margin-bottom:var(--space-lg);
   line-height:1.7;
 }
 .hero-btns{display:flex;gap:var(--space-sm);flex-wrap:wrap;margin-bottom:var(--space-xl)}
@@ -143,7 +160,7 @@ section{padding:var(--space-xl) var(--space-md)}
 }
 .partner-item{
   border:1px solid var(--border);border-radius:4px;padding:10px 20px;
-  font-size:0.85rem;font-weight:600;color:#666;
+  font-size:0.85rem;font-weight:600;color:var(--muted);
 }
 
 /* ===== CAPABILITIES ===== */
@@ -158,7 +175,7 @@ section{padding:var(--space-xl) var(--space-md)}
 }
 .cap-icon{font-size:2rem;margin-bottom:var(--space-sm)}
 .cap-title{font-size:1rem;font-weight:700;color:var(--gold);text-transform:uppercase;margin-bottom:var(--space-xs)}
-.cap-text{font-size:0.85rem;color:#555;line-height:1.6}
+.cap-text{font-size:0.85rem;color:var(--muted);line-height:1.6}
 
 /* ===== PROCESS TIMELINE ===== */
 #process{background:var(--accent)}
@@ -186,7 +203,7 @@ section{padding:var(--space-xl) var(--space-md)}
   display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);
   align-items:start;
 }
-.about-text p{margin-bottom:var(--space-sm);font-size:0.95rem;color:#555}
+.about-text p{margin-bottom:var(--space-sm);font-size:0.95rem;color:var(--muted)}
 
 /* ===== SERVICES ===== */
 #services{background:var(--accent)}
@@ -199,7 +216,7 @@ section{padding:var(--space-xl) var(--space-md)}
   box-shadow:0 1px 3px rgba(0,0,0,0.06);
 }
 .service-card h4{font-size:1rem;font-weight:700;margin-bottom:var(--space-xs)}
-.service-card p{font-size:0.85rem;color:#555;line-height:1.6}
+.service-card p{font-size:0.85rem;color:var(--muted);line-height:1.6}
 
 .lead-time-table{
   width:100%;border-collapse:collapse;margin-top:var(--space-md);
@@ -209,7 +226,7 @@ section{padding:var(--space-xl) var(--space-md)}
   padding:10px var(--space-sm);text-align:left;border-bottom:1px solid var(--border);
 }
 .lead-time-table th{font-weight:600;color:var(--gold);text-transform:uppercase;font-size:0.75rem}
-.lead-time-table td{color:#555}
+.lead-time-table td{color:var(--muted)}
 
 /* ===== PRODUCTS ===== */
 #products{background:#fff}
@@ -222,13 +239,13 @@ section{padding:var(--space-xl) var(--space-md)}
   box-shadow:0 1px 3px rgba(0,0,0,0.06);
 }
 .prod-card h4{font-size:1rem;font-weight:700;margin-bottom:var(--space-xs)}
-.prod-card p{font-size:0.82rem;color:#555;line-height:1.6}
+.prod-card p{font-size:0.82rem;color:var(--muted);line-height:1.6}
 .prod-card .tags{
   display:flex;flex-wrap:wrap;gap:4px;margin-top:var(--space-sm);
 }
 .prod-card .tags span{
   background:var(--border);padding:2px 8px;border-radius:2px;
-  font-size:0.7rem;color:#555;
+  font-size:0.7rem;color:var(--muted);
 }
 
 /* ===== QUALITY ===== */
@@ -242,12 +259,12 @@ section{padding:var(--space-xl) var(--space-md)}
   box-shadow:0 1px 3px rgba(0,0,0,0.06);
 }
 .qc-step h4{font-size:0.95rem;font-weight:700;margin-bottom:var(--space-xs)}
-.qc-step p{font-size:0.82rem;color:#555;line-height:1.6}
+.qc-step p{font-size:0.82rem;color:var(--muted);line-height:1.6}
 
 /* ===== CERTIFICATIONS ===== */
 #certifications{background:var(--primary);color:#fff;text-align:center}
 #certifications .section-title{color:#fff}
-#certifications .section-sub{color:#999;margin:0 auto var(--space-lg)}
+#certifications .section-sub{color:var(--muted);margin:0 auto var(--space-lg)}
 .cert-badges{
   display:flex;flex-wrap:wrap;gap:var(--space-sm);justify-content:center;
 }
@@ -262,9 +279,9 @@ section{padding:var(--space-xl) var(--space-md)}
   padding:var(--space-2xl) var(--space-md);
 }
 #cta h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:var(--space-sm)}
-#cta p{color:#999;margin-bottom:var(--space-lg);max-width:500px;margin-left:auto;margin-right:auto}
+#cta p{color:var(--muted);margin-bottom:var(--space-lg);max-width:500px;margin-left:auto;margin-right:auto}
 .cta-btn{
-  background:var(--gold);color:#fff;padding:16px 40px;border-radius:4px;
+  background:var(--gold);color:var(--primary);padding:16px 40px;border-radius:4px;
   font-weight:700;font-size:1rem;display:inline-block;transition:background 0.2s;
 }
 .cta-btn:hover{background:#b8974e}
@@ -280,7 +297,7 @@ footer{
   display:grid;grid-template-columns:2fr 1fr 1.5fr;gap:var(--space-xl);
 }
 footer h4{font-size:0.9rem;font-weight:700;margin-bottom:var(--space-sm);color:var(--primary)}
-footer p,footer a{font-size:0.85rem;color:#555;line-height:1.8}
+footer p,footer a{font-size:0.85rem;color:var(--muted);line-height:1.8}
 footer a:hover{color:var(--gold)}
 .footer-logo{font-size:1.05rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--space-xs)}
 .footer-bottom{
@@ -294,7 +311,7 @@ footer a:hover{color:var(--gold)}
 .contact-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);
 }
-.contact-info p{margin-bottom:var(--space-sm);font-size:0.9rem;color:#555}
+.contact-info p{margin-bottom:var(--space-sm);font-size:0.9rem;color:var(--muted)}
 .contact-info strong{color:var(--primary)}
 .contact-form{}
 .form-group{margin-bottom:var(--space-sm)}
@@ -310,13 +327,28 @@ footer a:hover{color:var(--gold)}
   outline:none;border-color:var(--gold);
 }
 .submit-btn{
-  background:var(--success);color:#fff;padding:12px 28px;border:none;
+  background:var(--gold);color:var(--primary);padding:12px 28px;border:none;
   border-radius:4px;font-weight:600;font-size:0.9rem;cursor:pointer;
   transition:background 0.2s;
 }
-.submit-btn:hover{background:#236b29}
+.submit-btn:hover{background:#b8974e}
 
-/* ===== RESPONSIVE ===== */
+/* ===== NEXT-STEP BLOCKS (free sample / portfolio / thank-you) ===== */
+.next-steps{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:var(--space-md);margin-top:var(--space-xl);
+}
+.next-card{
+  border:1px solid var(--border);border-radius:4px;padding:var(--space-md);
+  background:var(--accent);
+}
+.next-card h4{font-size:1rem;font-weight:700;color:var(--primary);margin-bottom:var(--space-xs)}
+.next-card p{font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:var(--space-sm)}
+.next-link{
+  display:inline-block;font-size:0.85rem;font-weight:600;color:var(--primary);
+  border-bottom:1px solid var(--gold);padding-bottom:2px;transition:color 0.2s;
+}
+.next-link:hover{color:var(--gold)}
 @media(max-width:768px){
   .nav-links{
     position:fixed;top:64px;left:0;right:0;background:var(--accent);
@@ -368,6 +400,7 @@ footer a:hover{color:var(--gold)}
 <!-- ===== HERO ===== -->
 <section id="hero">
   <div class="hero-content">
+    <span class="mono-label">01 — HERO / BẮT ĐẦU</span>
     <div lang="vi">
       <h1 class="hero-h1">Gia Công Túi / Balo<br>Tại Việt Nam</h1>
       <h2 class="hero-h2">Từ 300 Sản Phẩm</h2>
@@ -392,9 +425,12 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
+<hr class="divider">
+
 <!-- ===== TRUST STRIP ===== -->
 <section id="trust">
   <div class="section-inner">
+    <span class="mono-label">02 — ĐỐI TÁC / PARTNERS</span>
     <p lang="vi">Được tin tưởng bởi các thương hiệu Việt:</p>
     <p lang="en">Trusted by Vietnamese brands:</p>
     <div class="partner-list">
@@ -408,9 +444,12 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
+<hr class="divider">
+
 <!-- ===== CAPABILITIES ===== -->
 <section id="capabilities">
   <div class="section-inner">
+    <span class="mono-label">03 — NĂNG LỰC / CAPABILITIES</span>
     <h2 class="section-title" lang="vi">Năng Lực Sản Xuất</h2>
     <h2 class="section-title" lang="en">Our Capabilities</h2>
     <p class="section-sub" lang="vi">Từ vật liệu đến thành phẩm — chúng tôi làm chủ mọi công đoạn.</p>
@@ -448,9 +487,12 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
+<hr class="divider">
+
 <!-- ===== PROCESS TIMELINE ===== -->
 <section id="process">
   <div class="section-inner">
+    <span class="mono-label">04 — QUY TRÌNH / PROCESS</span>
     <h2 class="section-title" lang="vi">Từ Ý Tưởng Đến Sản Phẩm</h2>
     <h2 class="section-title" lang="en">From Idea to Delivery</h2>
     <p class="section-sub" lang="vi">Quy trình 6 bước — minh bạch, đúng tiến độ.</p>
@@ -501,9 +543,12 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
+<hr class="divider">
+
 <!-- ===== ABOUT ===== -->
 <section id="about">
   <div class="section-inner">
+    <span class="mono-label">05 — VỀ CHÚNG TÔI / ABOUT</span>
     <h2 class="section-title" lang="vi">Về Minh Tùng Studio</h2>
     <h2 class="section-title" lang="en">About Minh Tùng Studio</h2>
     <div class="about-grid">
@@ -523,7 +568,7 @@ footer a:hover{color:var(--gold)}
         <div class="cap-card" style="background:var(--accent)">
           <h4 style="font-weight:700;margin-bottom:var(--space-sm)" lang="vi">Thông Tin Xưởng</h4>
           <h4 style="font-weight:700;margin-bottom:var(--space-sm)" lang="en">Facility Info</h4>
-          <div style="font-size:0.85rem;color:#555;line-height:2">
+          <div style="font-size:0.85rem;color:var(--muted);line-height:2">
             <p lang="vi">📍 TP.HCM, Việt Nam</p>
             <p lang="en">📍 Ho Chi Minh City, Vietnam</p>
             <p lang="vi">🏭 Cắt, may, logo, QC, đóng gói — tại chỗ</p>
@@ -539,9 +584,12 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
+<hr class="divider">
+
 <!-- ===== SERVICES ===== -->
 <section id="services">
   <div class="section-inner">
+    <span class="mono-label">06 — DỊCH VỤ / SERVICES</span>
     <h2 class="section-title" lang="vi">Dịch Vụ Gia Công</h2>
     <h2 class="section-title" lang="en">Manufacturing Services</h2>
     <p class="section-sub" lang="vi">Từ OEM đến ODM — chúng tôi hiện thực hóa thiết kế của bạn.</p>
@@ -599,13 +647,16 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
+<hr class="divider">
+
 <!-- ===== PRODUCTS ===== -->
 <section id="products">
   <div class="section-inner">
+    <span class="mono-label">07 — SẢN PHẨM / PRODUCTS</span>
     <h2 class="section-title" lang="vi">Sản Phẩm Của Chúng Tôi</h2>
     <h2 class="section-title" lang="en">What We Make</h2>
-    <p class="section-sub" lang="vi">Danh mục sản phẩm cho đối tác B2B.</p>
-    <p class="section-sub" lang="en">Product categories for B2B partners.</p>
+    <p class="section-sub" lang="vi">Danh mục sản phẩm cho đối tác B2B. <em style="color:var(--muted);font-size:0.8rem">(Ảnh minh họa — placeholder)</em></p>
+    <p class="section-sub" lang="en">Product categories for B2B partners. <em style="color:var(--muted);font-size:0.8rem">(Placeholder images)</em></p>
     <div class="prod-grid">
       <div class="prod-card">
         <h4 lang="vi">🎒 Balo</h4>
@@ -646,9 +697,12 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
+<hr class="divider">
+
 <!-- ===== QUALITY ===== -->
 <section id="quality">
   <div class="section-inner">
+    <span class="mono-label">08 — CHẤT LƯỢNG / QUALITY</span>
     <h2 class="section-title" lang="vi">Kiểm Soát Chất Lượng</h2>
     <h2 class="section-title" lang="en">Quality Control</h2>
     <p class="section-sub" lang="vi">Từng lô hàng được kiểm định. Từng chi tiết được ghi nhận.</p>
@@ -680,19 +734,22 @@ footer a:hover{color:var(--gold)}
       </div>
     </div>
     <div style="margin-top:var(--space-lg);padding:var(--space-md);background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
-      <p style="font-size:0.9rem;color:#555;line-height:1.7;font-style:italic" lang="vi">
+      <p style="font-size:0.9rem;color:var(--muted);line-height:1.7;font-style:italic" lang="vi">
         "Chúng tôi tuân theo tiêu chuẩn sản xuất Việt Nam và duy trì QC nội bộ nghiêm ngặt. Với khách hàng yêu cầu chứng chỉ quốc tế, chúng tôi sẵn sàng cho bên thứ ba kiểm định và đang hướng tới BSCI, ISO 9001."
       </p>
-      <p style="font-size:0.9rem;color:#555;line-height:1.7;font-style:italic" lang="en">
+      <p style="font-size:0.9rem;color:var(--muted);line-height:1.7;font-style:italic" lang="en">
         "We follow Vietnamese national production standards and maintain rigorous in-house QC. For buyers requiring formal certifications, we welcome third-party audits and are actively working toward BSCI and ISO 9001 compliance."
       </p>
     </div>
   </div>
 </section>
 
+<hr class="divider" style="background:var(--dark-border)">
+
 <!-- ===== CERTIFICATIONS ===== -->
 <section id="certifications">
   <div class="section-inner">
+    <span class="mono-label">09 — CHỨNG CHỈ / CERTIFICATIONS</span>
     <h2 class="section-title" lang="vi">Được Kiểm Định, Đạt Chuẩn</h2>
     <h2 class="section-title" lang="en">Audited, Qualified, Accountable</h2>
     <p class="section-sub" lang="vi">Chúng tôi đang hướng tới các chứng chỉ quốc tế — minh bạch về lộ trình.</p>
@@ -704,18 +761,21 @@ footer a:hover{color:var(--gold)}
       <span class="cert-badge">OEKO-TEX</span>
       <span class="cert-badge">GRS</span>
     </div>
-    <p style="margin-top:var(--space-lg);color:#999;font-size:0.85rem;max-width:600px;margin-left:auto;margin-right:auto" lang="vi">
+    <p style="margin-top:var(--space-lg);color:var(--muted);font-size:0.85rem;max-width:600px;margin-left:auto;margin-right:auto" lang="vi">
       Hiện tại MTS vận hành theo tiêu chuẩn sản xuất Việt Nam. Đang tiến hành các bước để đạt BSCI và ISO 9001.
     </p>
-    <p style="margin-top:var(--space-lg);color:#999;font-size:0.85rem;max-width:600px;margin-left:auto;margin-right:auto" lang="en">
+    <p style="margin-top:var(--space-lg);color:var(--muted);font-size:0.85rem;max-width:600px;margin-left:auto;margin-right:auto" lang="en">
       MTS currently operates to Vietnamese production standards and is actively working toward BSCI and ISO 9001 certification.
     </p>
   </div>
 </section>
 
+<hr class="divider">
+
 <!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="section-inner">
+    <span class="mono-label">10 — LIÊN HỆ / CONTACT</span>
     <h2 class="section-title" lang="vi">Liên Hệ & Báo Giá</h2>
     <h2 class="section-title" lang="en">Start Your Project</h2>
     <p class="section-sub" lang="vi">Gửi thiết kế của bạn — chúng tôi sẽ báo giá trong vòng 48 giờ, không cam kết.</p>
@@ -790,18 +850,48 @@ footer a:hover{color:var(--gold)}
           <p>📍 <strong lang="vi">Địa chỉ:</strong><strong lang="en">Address:</strong> TP.HCM, Vietnam</p>
           <p>🕐 <strong lang="vi">Phản hồi:</strong><strong lang="en">Response:</strong> <span lang="vi">Trong 24h (ngày làm việc)</span><span lang="en">Within 24 hours (business days)</span></p>
           <div style="margin-top:var(--space-md);padding-top:var(--space-md);border-top:1px solid var(--border)">
-            <p style="font-size:0.85rem;color:#555;line-height:1.7" lang="vi"><strong>Sau khi gửi:</strong> Chúng tôi xem xét yêu cầu trong 24h → Báo giá sơ bộ (48h) → Bạn gửi techpack → Mẫu thử 7–10 ngày → Bạn duyệt → Sản xuất.</p>
-            <p style="font-size:0.85rem;color:#555;line-height:1.7" lang="en"><strong>After you submit:</strong> We review within 24h → Preliminary quote (48h) → You share techpack → Sample in 7–10 days → You approve → Production.</p>
+            <p style="font-size:0.85rem;color:var(--muted);line-height:1.7" lang="vi"><strong>Sau khi gửi:</strong> Chúng tôi xem xét yêu cầu trong 24h → Báo giá sơ bộ (48h) → Bạn gửi techpack → Mẫu thử 7–10 ngày → Bạn duyệt → Sản xuất.</p>
+            <p style="font-size:0.85rem;color:var(--muted);line-height:1.7" lang="en"><strong>After you submit:</strong> We review within 24h → Preliminary quote (48h) → You share techpack → Sample in 7–10 days → You approve → Production.</p>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="next-steps">
+      <div class="next-card" id="free-sample">
+        <h4 lang="vi">🎁 Mẫu Thử Miễn Phí</h4>
+        <h4 lang="en">🎁 Free Sample</h4>
+        <p lang="vi">Chưa chắc về chất lượng? Gửi brief, chúng tôi làm 1 mẫu thử thực tế (phí mẫu được trừ vào đơn sản xuất).</p>
+        <p lang="en">Not sure about quality? Send a brief — we'll make a real physical sample (sample fee deducted from your production order).</p>
+        <a href="#contact" class="next-link" lang="vi">Yêu cầu mẫu thử →</a>
+        <a href="#contact" class="next-link" lang="en">Request a sample →</a>
+      </div>
+      <div class="next-card" id="portfolio">
+        <h4 lang="vi">📂 Tải Portfolio</h4>
+        <h4 lang="en">📂 Portfolio Download</h4>
+        <p lang="vi">Xem danh mục sản phẩm đã gia công cho TeeLab, 98STU, OnFire, JMP, Elever, Owner Studio.</p>
+        <p lang="en">See past work made for TeeLab, 98STU, OnFire, JMP, Elever, Owner Studio.</p>
+        <a href="#" class="next-link" lang="vi">Tải PDF portfolio →</a>
+        <a href="#" class="next-link" lang="en">Download PDF →</a>
+      </div>
+      <div class="next-card" id="thank-you">
+        <h4 lang="vi">✅ Sau Khi Liên Hệ</h4>
+        <h4 lang="en">✅ Next Step</h4>
+        <p lang="vi">Cảm ơn! Chúng tôi phản hồi trong 24h → báo giá 48h → mẫu thử 7–10 ngày → sản xuất.</p>
+        <p lang="en">Thank you! We reply within 24h → quote in 48h → sample in 7–10 days → production.</p>
+        <a href="#cta" class="next-link" lang="vi">Bắt Đầu Dự Án →</a>
+        <a href="#cta" class="next-link" lang="en">Start Your Project →</a>
       </div>
     </div>
   </div>
 </section>
 
+<hr class="divider" style="background:var(--dark-border)">
+
 <!-- ===== CTA ===== -->
 <section id="cta">
   <div class="section-inner">
+    <span class="mono-label">11 — BẮT ĐẦU / GET STARTED</span>
     <h2 lang="vi">Sẵn sàng bắt đầu sản xuất?</h2>
     <h2 lang="en">Ready to start your production?</h2>
     <p lang="vi">Kể tôi nghe về dự án của bạn → tôi sẽ phản hồi trong 24h</p>
