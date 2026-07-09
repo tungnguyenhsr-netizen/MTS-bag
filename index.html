@@ -17,28 +17,70 @@
 /* ===== RESET & BASE ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:var(--accent);line-height:1.6;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-sans);color:var(--text);background:var(--accent);line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
 
-/* ===== VARIABLES ===== */
+/* ===== DESIGN TOKENS (Astryx-style system, MTS brand) ===== */
 :root{
-  --primary:#1A1A1A;
-  --gold:#C8A96E;
-  --accent:#F5F0EB;
-  --text:#1A1A1A;
-  --muted:#8A8175;
-  --border:#E2D9CC;
-  --dark-border:#2A2A2A;
-  --success:#C8A96E;
-  --max-w:1200px;
+  /* --- Color --- */
+  --color-bg:#F5F0EB;          /* cream */
+  --color-surface:#FFFFFF;     /* card surface */
+  --color-ink:#1A1A1A;         /* industrial black */
+  --color-ink-soft:#2A2A2A;    /* dividers on dark */
+  --color-accent:#C8A96E;      /* warm gold (single accent) */
+  --color-text:var(--color-ink);
+  --color-muted:#8A8175;
+  --color-border:#E2D9CC;
+  --color-border-dark:#2A2A2A;
+
+  /* --- Typography --- */
+  --font-sans:'Inter',-apple-system,system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --fs-display:clamp(2.4rem,5vw,3.6rem);
+  --fs-h2:clamp(1.6rem,3vw,2.2rem);
+  --fs-h3:1.2rem;
+  --fs-body:1rem;
+  --fs-small:0.85rem;
+  --fs-mono:0.62rem;
+
+  /* --- Spacing scale (8px base) --- */
   --space-xs:8px;
   --space-sm:16px;
   --space-md:24px;
   --space-lg:48px;
   --space-xl:80px;
   --space-2xl:112px;
+  --max-w:1200px;
+
+  /* --- Radius --- */
+  --radius-sm:2px;
+  --radius-md:4px;
+  --radius-lg:8px;
+
+  /* --- Motion (token-driven, subtle) --- */
+  --motion-fast:0.2s;
+  --motion-base:0.4s;
+  --motion-slow:0.7s;
+  --ease-standard:cubic-bezier(0.4,0,0.2,1);
+  --ease-out:cubic-bezier(0,0,0.2,1);
+
+  /* --- Elevation (border-based, no heavy shadow per tastecode) --- */
+  --elevation-0:0 0 0 1px var(--color-border);
+  --elevation-1:0 1px 2px rgba(0,0,0,0.04);
+}
+
+/* legacy aliases so existing rules keep working */
+:root{
+  --primary:var(--color-ink);
+  --gold:var(--color-accent);
+  --accent:var(--color-bg);
+  --text:var(--color-text);
+  --muted:var(--color-muted);
+  --border:var(--color-border);
+  --dark-border:var(--color-border-dark);
+  --success:var(--color-accent);
 }
 
 /* ===== LANGUAGE TOGGLE SYSTEM (robust) ===== */
@@ -51,7 +93,7 @@ body.show-en [lang="en"].inline,body:not(.show-en) [lang="vi"].inline{display:in
 /* ===== NAVIGATION ===== */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:1000;
-  background:#F5F0EB;border-bottom:1px solid var(--border);
+  background:var(--color-bg);border-bottom:1px solid var(--border);
   height:64px;
 }
 .nav-inner{
@@ -65,20 +107,20 @@ nav{
 .nav-links{display:flex;gap:var(--space-md);align-items:center}
 .nav-links a{
   font-size:0.85rem;font-weight:500;color:var(--text);
-  transition:color 0.2s;
+  transition:color var(--motion-fast);
 }
 .nav-links a:hover{color:var(--gold)}
 .lang-toggle{
-  background:none;border:1px solid var(--border);border-radius:4px;
-  padding:4px 10px;font-family:'Inter',sans-serif;font-size:0.8rem;
-  font-weight:600;color:var(--text);cursor:pointer;transition:all 0.2s;
+  background:none;border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:4px 10px;font-family:var(--font-sans);font-size:0.8rem;
+  font-weight:600;color:var(--text);cursor:pointer;transition:all var(--motion-fast);
 }
 .lang-toggle:hover{border-color:var(--gold);color:var(--gold)}
 .nav-cta{
-  background:var(--gold);color:var(--primary);padding:8px 18px;border-radius:4px;
-  font-size:0.8rem;font-weight:600;transition:background 0.2s;
+  background:var(--gold);color:var(--primary);padding:8px 18px;border-radius:var(--radius-md);
+  font-size:0.8rem;font-weight:600;transition:background var(--motion-fast);
 }
-.nav-cta:hover{background:#b8974e}
+.nav-cta:hover{background:var(--color-accent)}
 
 /* Hamburger */
 .hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px;padding:4px}
@@ -100,7 +142,7 @@ section{padding:var(--space-xl) var(--space-md)}
 
 /* ===== MONO LABEL & DIVIDER (tastecode) ===== */
 .mono-label{
-  font-family:'JetBrains Mono','SF Mono',monospace;
+  font-family:var(--font-mono);
   font-size:0.75rem;font-weight:600;
   letter-spacing:0.2em;text-transform:uppercase;
   color:var(--gold);margin-bottom:var(--space-sm);
@@ -130,7 +172,7 @@ section{padding:var(--space-2xl) var(--space-md)}
   position:relative;overflow:hidden;
 }
 .hero-visual .placeholder-tag{
-  font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;
+  font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.2em;
   text-transform:uppercase;color:var(--gold);opacity:0.7;
 }
 .hero-h1{
@@ -147,13 +189,13 @@ section{padding:var(--space-2xl) var(--space-md)}
 }
 .hero-btns{display:flex;gap:var(--space-sm);flex-wrap:wrap;margin-bottom:var(--space-xl)}
 .btn-primary{
-  background:var(--gold);color:var(--primary);padding:14px 32px;border-radius:4px;
-  font-weight:600;font-size:0.95rem;transition:background 0.2s;display:inline-block;
+  background:var(--gold);color:var(--primary);padding:14px 32px;border-radius:var(--radius-md);
+  font-weight:600;font-size:0.95rem;transition:background var(--motion-fast);display:inline-block;
 }
-.btn-primary:hover{background:#b8974e}
+.btn-primary:hover{background:var(--color-accent)}
 .btn-secondary{
-  border:1px solid #fff;color:#fff;padding:14px 32px;border-radius:4px;
-  font-weight:600;font-size:0.95rem;transition:all 0.2s;display:inline-block;
+  border:1px solid #fff;color:#fff;padding:14px 32px;border-radius:var(--radius-md);
+  font-weight:600;font-size:0.95rem;transition:all var(--motion-fast);display:inline-block;
 }
 .btn-secondary:hover{background:rgba(255,255,255,0.1)}
 .hero-stats{
@@ -162,7 +204,7 @@ section{padding:var(--space-2xl) var(--space-md)}
   border-top:1px solid var(--dark-border);padding-top:var(--space-md);
 }
 .stat-num{
-  font-family:'JetBrains Mono','SF Mono',monospace;font-size:1.5rem;font-weight:600;color:#fff;
+  font-family:var(--font-mono);font-size:1.5rem;font-weight:600;color:#fff;
 }
 .stat-label{font-size:0.8rem;color:var(--muted);margin-top:4px}
 
@@ -175,7 +217,7 @@ section{padding:var(--space-2xl) var(--space-md)}
   display:flex;flex-wrap:wrap;gap:var(--space-sm);justify-content:center;
 }
 .partner-item{
-  border:1px solid var(--border);border-radius:4px;padding:10px 20px;
+  border:1px solid var(--border);border-radius:var(--radius-md);padding:10px 20px;
   font-size:0.85rem;font-weight:600;color:var(--muted);
 }
 
@@ -186,7 +228,7 @@ section{padding:var(--space-2xl) var(--space-md)}
   gap:var(--space-md);
 }
 .cap-card{
-  background:#fff;padding:var(--space-md);border-radius:0;
+  background:var(--color-surface);padding:var(--space-md);border-radius:0;
   border:1px solid var(--border);transition:border-color 0.2s;
 }
 .cap-card:hover{border-color:var(--gold)}
@@ -206,10 +248,10 @@ section{padding:var(--space-2xl) var(--space-md)}
   position:relative;
 }
 .step-num{
-  width:44px;height:44px;border-radius:50%;background:#fff;
+  width:44px;height:44px;border-radius:50%;background:var(--color-surface);
   border:2px solid var(--gold);color:var(--gold);
   display:flex;align-items:center;justify-content:center;
-  font-family:'JetBrains Mono',monospace;font-weight:600;
+  font-family:var(--font-mono);font-weight:600;
   margin:0 auto var(--space-xs);
 }
 .step-label{font-size:0.8rem;font-weight:600;color:var(--primary)}
@@ -230,7 +272,7 @@ section{padding:var(--space-2xl) var(--space-md)}
   gap:var(--space-md);
 }
 .service-card{
-  background:#fff;padding:var(--space-md);
+  background:var(--color-surface);padding:var(--space-md);
   border:1px solid var(--border);transition:border-color 0.2s;
 }
 .service-card:hover{border-color:var(--gold)}
@@ -254,7 +296,7 @@ section{padding:var(--space-2xl) var(--space-md)}
   gap:var(--space-md);
 }
 .prod-card{
-  background:#fff;padding:var(--space-md);
+  background:var(--color-surface);padding:var(--space-md);
   border:1px solid var(--border);transition:border-color 0.2s;
 }
 .prod-card:hover{border-color:var(--gold)}
@@ -264,7 +306,7 @@ section{padding:var(--space-2xl) var(--space-md)}
   display:flex;flex-wrap:wrap;gap:4px;margin-top:var(--space-sm);
 }
 .prod-card .tags span{
-  background:var(--border);padding:2px 8px;border-radius:2px;
+  background:var(--border);padding:2px 8px;border-radius:var(--radius-sm);
   font-size:0.7rem;color:var(--muted);
 }
 
@@ -275,7 +317,7 @@ section{padding:var(--space-2xl) var(--space-md)}
   gap:var(--space-md);
 }
 .qc-step{
-  background:#fff;padding:var(--space-md);
+  background:var(--color-surface);padding:var(--space-md);
   border:1px solid var(--border);transition:border-color 0.2s;
 }
 .qc-step:hover{border-color:var(--gold)}
@@ -302,10 +344,10 @@ section{padding:var(--space-2xl) var(--space-md)}
 #cta h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:var(--space-sm)}
 #cta p{color:var(--muted);margin-bottom:var(--space-lg);max-width:500px;margin-left:auto;margin-right:auto}
 .cta-btn{
-  background:var(--gold);color:var(--primary);padding:16px 40px;border-radius:4px;
-  font-weight:700;font-size:1rem;display:inline-block;transition:background 0.2s;
+  background:var(--gold);color:var(--primary);padding:16px 40px;border-radius:var(--radius-md);
+  font-weight:700;font-size:1rem;display:inline-block;transition:background var(--motion-fast);
 }
-.cta-btn:hover{background:#b8974e}
+.cta-btn:hover{background:var(--color-accent)}
 .cta-phone{margin-top:var(--space-md);color:var(--muted);font-size:0.85rem}
 
 /* ===== FOOTER ===== */
@@ -328,7 +370,7 @@ footer a:hover{color:var(--gold)}
 }
 
 /* ===== CONTACT SECTION ===== */
-#contact{background:#fff}
+#contact{background:var(--color-surface)}
 .contact-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);
 }
@@ -340,8 +382,8 @@ footer a:hover{color:var(--gold)}
   display:block;font-size:0.8rem;font-weight:600;margin-bottom:4px;color:var(--text);
 }
 .form-group input,.form-group select,.form-group textarea{
-  width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:4px;
-  font-family:'Inter',sans-serif;font-size:0.9rem;background:#fff;color:var(--text);
+  width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-md);
+  font-family:var(--font-sans);font-size:0.9rem;background:var(--color-surface);color:var(--text);
 }
 .form-group textarea{min-height:100px;resize:vertical}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{
@@ -349,10 +391,10 @@ footer a:hover{color:var(--gold)}
 }
 .submit-btn{
   background:var(--gold);color:var(--primary);padding:12px 28px;border:none;
-  border-radius:4px;font-weight:600;font-size:0.9rem;cursor:pointer;
-  transition:background 0.2s;
+  border-radius:var(--radius-md);font-weight:600;font-size:0.9rem;cursor:pointer;
+  transition:background var(--motion-fast);
 }
-.submit-btn:hover{background:#b8974e}
+.submit-btn:hover{background:var(--color-accent)}
 
 /* ===== NEXT-STEP BLOCKS (free sample / portfolio / thank-you) ===== */
 .next-steps{
@@ -360,14 +402,14 @@ footer a:hover{color:var(--gold)}
   gap:var(--space-md);margin-top:var(--space-xl);
 }
 .next-card{
-  border:1px solid var(--border);border-radius:4px;padding:var(--space-md);
+  border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-md);
   background:var(--accent);
 }
 .next-card h4{font-size:1rem;font-weight:700;color:var(--primary);margin-bottom:var(--space-xs)}
 .next-card p{font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:var(--space-sm)}
 .next-link{
   display:inline-block;font-size:0.85rem;font-weight:600;color:var(--primary);
-  border-bottom:1px solid var(--gold);padding-bottom:2px;transition:color 0.2s;
+  border-bottom:1px solid var(--gold);padding-bottom:2px;transition:color var(--motion-fast);
 }
 .next-link:hover{color:var(--gold)}
 @media(max-width:768px){
@@ -394,10 +436,26 @@ footer a:hover{color:var(--gold)}
 }
 .lang-toggle .globe{font-size:0.85em}
 
+/* ===== ACCESSIBILITY (Astryx principle: a11y by default) ===== */
+:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px;border-radius:var(--radius-sm)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation-duration:0.001ms !important;transition-duration:0.001ms !important}
+}
+/* card hover uses elevation token instead of heavy shadow */
+.cap-card:hover,.service-card:hover,.prod-card:hover,.qc-step:hover{
+  box-shadow:var(--elevation-1);transform:translateY(-2px);
+  transition:transform var(--motion-base) var(--ease-out),box-shadow var(--motion-base) var(--ease-out);
+}
+.btn-primary:hover,.btn-secondary:hover,.nav-cta:hover,.lang-toggle:hover{
+  transition:all var(--motion-fast) var(--ease-standard);
+}
+
 /* ===== STOCK IMAGE (tastecode: real stock, labeled by context) ===== */
 .ph-img{
   width:100%;aspect-ratio:4/3;object-fit:cover;display:block;
-  margin-bottom:var(--space-sm);border:1px solid var(--border);border-radius:2px;
+  margin-bottom:var(--space-sm);border:1px solid var(--border);border-radius:var(--radius-sm);
   background:var(--accent);
 }
 .hero-img{width:100%;height:100%;object-fit:cover;display:block}
@@ -786,7 +844,7 @@ footer a:hover{color:var(--gold)}
         <p lang="en">100% of batch: stitch quality, hardware function, logo placement, cleanliness, packaging. Photos sent for sign-off.</p>
       </div>
     </div>
-    <div style="margin-top:var(--space-lg);padding:var(--space-md);background:#fff;border:1px solid var(--border)">
+    <div style="margin-top:var(--space-lg);padding:var(--space-md);background:var(--color-surface);border:1px solid var(--border)">
       <p style="font-size:0.9rem;color:var(--muted);line-height:1.7;font-style:italic" lang="vi">
         "Chúng tôi tuân theo tiêu chuẩn sản xuất Việt Nam và duy trì QC nội bộ nghiêm ngặt. Với khách hàng yêu cầu chứng chỉ quốc tế, chúng tôi sẵn sàng cho bên thứ ba kiểm định và đang hướng tới BSCI, ISO 9001."
       </p>
