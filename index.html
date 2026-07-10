@@ -12,8 +12,8 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-XXXXXXXXXX');
 </script>
-<title>Minh Tùng Studio
-<meta name="description" content="Minh Tùng Studio chuyên gia công túi, balo, cặp và phụ kiện da cho thương hiệu thời trang. OEM/ODM — MOQ 300. Sản xuất tại Việt Nam.">
+<title>Minh Tùng Studio</title>
+<meta name="description"
 <meta property="og:title" content="Minh Tùng Studio — OEM Bag & Backpack Manufacturer Vietnam">
 <meta property="og:description" content="Custom bag manufacturing in Vietnam. From 300 pieces. OEM/ODM backpacks, sling bags, totes, duffels for fashion brands.">
 <meta property="og:type" content="website">
@@ -517,13 +517,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-accent);outli
 .factory-img:hover{transform:scale(1.03)}
 
 /* ===== ANIMATION POLISH ===== */
-/* stagger reveal by index — SAFE FALLBACK: content visible by default.
-   Only hide/animate when JS is active (html.js added by inline script). */
-.js .reveal{opacity:0;transform:translateY(24px);transition:opacity var(--motion-base) var(--ease-out),transform var(--motion-base) var(--ease-out)}
-.js .reveal.in-view{opacity:1;transform:none}
-.reveal[data-delay="1"]{transition-delay:0.08s}
-.reveal[data-delay="2"]{transition-delay:0.16s}
-.reveal[data-delay="3"]{transition-delay:0.24s}
+/* SAFE FALLBACK: content VISIBLE by default. Only hide+animate when JS is active
+   AND adds .reveal-active to <html>. If JS fails/crashes, content stays visible. */
+.reveal{opacity:1;transform:none}
+html.reveal-active .reveal{opacity:0;transform:translateY(24px);transition:opacity var(--motion-base) var(--ease-out),transform var(--motion-base) var(--ease-out)}
+html.reveal-active .reveal.in-view{opacity:1;transform:none}
+html.reveal-active .reveal[data-delay="1"]{transition-delay:0.08s}
+html.reveal-active .reveal[data-delay="2"]{transition-delay:0.16s}
+html.reveal-active .reveal[data-delay="3"]{transition-delay:0.24s}
 /* hero entrance */
 @keyframes heroIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 .hero-content .mono-label,.hero-content h1,.hero-content h2,.hero-content p,.hero-btns,.hero-stats{animation:heroIn 0.7s var(--ease-out) both}
@@ -534,7 +535,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-accent);outli
 .hero-stats{animation-delay:0.33s}
 
 @media(prefers-reduced-motion:reduce){
-  .js .reveal{opacity:1;transform:none;transition:none}
+  html.reveal-active .reveal{opacity:1;transform:none;transition:none}
   .hero-content .mono-label,.hero-content h1,.hero-content h2,.hero-content p,.hero-btns,.hero-stats{animation:none}
   .hero-visual{animation:none}
   .ph-img,.factory-img,.hero-img{transition:none}
@@ -1023,7 +1024,7 @@ nav.nav-scrolled .nav-logo{font-size:0.95rem}
       <div class="contact-form">
         <form action="https://api.web3forms.com/submit" method="POST">
           <!-- Web3Forms — get your free access key at https://web3forms.com -->
-          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+          <input type="hidden" name="access_key" value="83ab6db2-fc49-47ad-b9de-18d2a526337f">
           <input type="hidden" name="redirect" value="https://mtsbag.vercel.app/#contact">
           <input type="hidden" name="subject" value="MTS — New Quote Request">
           <!-- Honeypot spam protection -->
@@ -1195,9 +1196,11 @@ nav.nav-scrolled .nav-logo{font-size:0.95rem}
 <!-- ===== LANGUAGE TOGGLE + MOTION + INTERACTION SCRIPT ===== -->
 <script>
 document.addEventListener('DOMContentLoaded', function(){
+ try {
   var body = document.body;
   var btn = document.getElementById('langToggle');
-  var saved = localStorage.getItem('mts-lang');
+  var saved = null;
+  try { saved = localStorage.getItem('mts-lang'); } catch(e) { saved = null; }
   if (saved === 'en') body.classList.add('show-en');
   function updateBtn(){
     if (body.classList.contains('show-en')) {
@@ -1209,12 +1212,15 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   }
   updateBtn();
-  btn.addEventListener('click', function(){
+  if (btn) btn.addEventListener('click', function(){
     body.classList.toggle('show-en');
-    localStorage.setItem('mts-lang', body.classList.contains('show-en') ? 'en' : 'vi');
+    try { localStorage.setItem('mts-lang', body.classList.contains('show-en') ? 'en' : 'vi'); } catch(e) {}
     updateBtn();
   });
 
+  // Enable reveal animation only after JS is confirmed running (safe fallback:
+  // content is visible by default in CSS, so a JS crash leaves content readable).
+  document.documentElement.classList.add('reveal-active');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var targets = document.querySelectorAll('.reveal');
   if (!reduce && 'IntersectionObserver' in window) {
@@ -1302,6 +1308,10 @@ document.addEventListener('DOMContentLoaded', function(){
       }, {passive:true});
     }
   }
+ } catch(err) {
+  // JS error: content already visible by default (CSS fallback), so page still renders.
+  console.error('MTS interaction script error:', err);
+ }
 });
 </script>
 <!-- GA4 Event Tracking -->
