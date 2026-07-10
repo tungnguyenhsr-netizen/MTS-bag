@@ -4,7 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>document.documentElement.className += ' js';</script>
-<title>Minh Tùng Studio (MTS) — Sản Xuất Túi / Balo Tại Việt Nam</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+</script>
+<title>Minh Tùng Studio
 <meta name="description" content="Minh Tùng Studio chuyên gia công túi, balo, cặp và phụ kiện da cho thương hiệu thời trang. OEM/ODM — MOQ 300. Sản xuất tại Việt Nam.">
 <meta property="og:title" content="Minh Tùng Studio — OEM Bag & Backpack Manufacturer Vietnam">
 <meta property="og:description" content="Custom bag manufacturing in Vietnam. From 300 pieces. OEM/ODM backpacks, sling bags, totes, duffels for fashion brands.">
@@ -144,7 +152,7 @@ section{padding:var(--space-2xl) var(--space-md)}
 .section-inner{max-width:var(--max-w);margin:0 auto}
 .section-title{
   font-size:2rem;font-weight:700;margin-bottom:var(--space-sm);
-  color:var(--primary);
+  color:var(--primary);letter-spacing:-0.01em;
 }
 .section-sub{
   font-size:1rem;color:var(--muted);margin-bottom:var(--space-lg);
@@ -189,7 +197,7 @@ section{padding:var(--space-2xl) var(--space-md)}
   text-transform:uppercase;color:var(--gold);opacity:0.7;
 }
 .hero-h1{
-  font-size:clamp(2rem,5vw,3.5rem);font-weight:800;line-height:1.15;
+  font-size:clamp(2rem,5vw,3.5rem);font-weight:800;line-height:1.1;
   margin-bottom:var(--space-sm);letter-spacing:-0.02em;
 }
 .hero-h2{
@@ -357,7 +365,7 @@ section{padding:var(--space-2xl) var(--space-md)}
   background:var(--primary);color:var(--color-surface);text-align:center;
   padding:var(--space-2xl) var(--space-md);
 }
-#cta h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:var(--space-sm)}
+#cta h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:var(--space-sm);letter-spacing:-0.01em}
 #cta p{color:var(--muted);margin-bottom:var(--space-lg);max-width:500px;margin-left:auto;margin-right:auto}
 .cta-btn{
   background:var(--gold);color:var(--primary);padding:16px 40px;border-radius:var(--radius-md);
@@ -495,10 +503,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-accent);outli
 .hero-img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* ===== HERO ENHANCEMENT ===== */
-.hero-visual{position:relative;border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border)}
+.hero-visual{position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border)}
 .hero-visual .hero-img{position:absolute;inset:0;width:100%;height:100%}
 .hero-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,26,26,0.25) 0%,rgba(26,26,26,0.75) 100%)}
-.hero-overlay{position:absolute;left:var(--space-md);bottom:var(--space-md);right:var(--space-md);z-index:2;color:#fff;text-shadow:0 2px 20px rgba(26,26,26,0.85)}
+.hero-overlay{position:absolute;left:var(--space-md);bottom:var(--space-md);right:var(--space-md);z-index:2;color:var(--color-surface);text-shadow:0 2px 20px rgba(26,26,26,0.85)}
 .hero-overlay .mono-label{color:var(--color-accent)}
 .hero-overlay h3{font-size:1.1rem;font-weight:700;margin-top:var(--space-xs);letter-spacing:0.02em}
 .hero-factory-tag{font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:0.18em;text-transform:uppercase;opacity:0.85}
@@ -556,6 +564,10 @@ nav.nav-scrolled .nav-logo{font-size:0.95rem}
   #back-to-top{bottom:16px;right:16px;width:44px;height:44px}
 }
 </style>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://mtsbag.vercel.app/#organization","name":"Minh Tùng Studio","alternateName":"MTS","url":"https://mtsbag.vercel.app","description":"OEM bag and backpack manufacturer in Ho Chi Minh City, Vietnam. Specializing in custom backpacks, sling bags, duffels, totes, and leather accessories for fashion brands, streetwear labels, and startups.","email":"tungnguyenhsr@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Ho Chi Minh City","addressCountry":"VN"},"founder":{"@type":"Person","name":"Nguyễn Mạnh Tùng","alternateName":"Tommy"},"knowsAbout":["OEM Manufacturing","Bag and Backpack Production","Leather Goods Manufacturing","Textile Manufacturing","ODM Services"],"numberOfEmployees":{"@type":"QuantitativeValue","minValue":10,"maxValue":50},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Manufacturing Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"OEM Manufacturing","description":"Manufacture your bag or backpack design. Send techpack or reference product. We source materials, produce samples, and manufacture bulk."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"ODM Design & Material Optimization","description":"Design consulting and material alternatives to reduce production costs by 10-20% while maintaining quality and feel."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Logo & Branding Services","description":"Logo engraving, embossing, heat transfer printing, and custom hardware branding for bags and accessories."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Packaging & Logistics","description":"Packaging per Shopee/TikTok standards and logistics coordination for domestic and international delivery."}}]},"makesOffer":[{"@id":"https://mtsbag.vercel.app/#product-backpack"},{"@id":"https://mtsbag.vercel.app/#product-sling"},{"@id":"https://mtsbag.vercel.app/#product-duffel"},{"@id":"https://mtsbag.vercel.app/#product-tote"},{"@id":"https://mtsbag.vercel.app/#product-leather-accessories"}],"contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"tungnguyenhsr@gmail.com","availableLanguage":["Vietnamese","English"]}},{"@type":"Product","@id":"https://mtsbag.vercel.app/#product-backpack","name":"OEM Backpack Manufacturing","description":"Custom backpack production for fashion brands and streetwear labels. Daypacks, laptop backpacks, and fashion backpacks. Padded compartments, multi-pocket configurations, custom hardware.","category":"Backpack","material":["Canvas","PU Leather","Nylon","Polyester"],"manufacturer":{"@id":"https://mtsbag.vercel.app/#organization"},"offers":{"@type":"Offer","priceSpecification":{"@type":"UnitPriceSpecification","price":"0","priceCurrency":"USD","description":"B2B pricing varies by design, materials, quantity, and complexity. Contact for quote."},"eligibleQuantity":{"@type":"QuantitativeValue","minValue":300,"unitText":"Units"},"businessFunction":"http://purl.org/goodrelations/v1#Manufacture"}},{"@type":"Product","@id":"https://mtsbag.vercel.app/#product-sling","name":"OEM Sling & Crossbody Bag Manufacturing","description":"Custom sling bags and crossbody messenger bags for brands. Mini slings, shoulder bags, crossbody messengers. Adjustable straps, zip compartments, custom hardware.","category":"Sling Bag","material":["PU Leather","Canvas","Nylon"],"manufacturer":{"@id":"https://mtsbag.vercel.app/#organization"},"offers":{"@type":"Offer","priceSpecification":{"@type":"UnitPriceSpecification","price":"0","priceCurrency":"USD","description":"B2B pricing varies by design, materials, quantity, and complexity. Contact for quote."},"eligibleQuantity":{"@type":"QuantitativeValue","minValue":300,"unitText":"Units"},"businessFunction":"http://purl.org/goodrelations/v1#Manufacture"}},{"@type":"Product","@id":"https://mtsbag.vercel.app/#product-duffel","name":"OEM Duffel Bag Manufacturing","description":"Custom duffel bags and weekenders for brands. Gym duffels, travel weekender bags, mini duffles. Detachable straps, shoe compartments, coated fabric options.","category":"Duffel Bag","material":["Canvas","PU Leather","Coated Fabrics","Nylon"],"manufacturer":{"@id":"https://mtsbag.vercel.app/#organization"},"offers":{"@type":"Offer","priceSpecification":{"@type":"UnitPriceSpecification","price":"0","priceCurrency":"USD","description":"B2B pricing varies by design, materials, quantity, and complexity. Contact for quote."},"eligibleQuantity":{"@type":"QuantitativeValue","minValue":300,"unitText":"Units"},"businessFunction":"http://purl.org/goodrelations/v1#Manufacture"}},{"@type":"Product","@id":"https://mtsbag.vercel.app/#product-tote","name":"OEM Tote Bag Manufacturing","description":"Custom tote bag production for brands. Structured totes with magnetic closures, foldable totes for events and retail, shopping totes. Reinforced handles, custom lining.","category":"Tote Bag","material":["Canvas","PU Leather","Cotton"],"manufacturer":{"@id":"https://mtsbag.vercel.app/#organization"},"offers":{"@type":"Offer","priceSpecification":{"@type":"UnitPriceSpecification","price":"0","priceCurrency":"USD","description":"B2B pricing varies by design, materials, quantity, and complexity. Contact for quote."},"eligibleQuantity":{"@type":"QuantitativeValue","minValue":300,"unitText":"Units"},"businessFunction":"http://purl.org/goodrelations/v1#Manufacture"}},{"@type":"Product","@id":"https://mtsbag.vercel.app/#product-leather-accessories","name":"OEM Leather Accessory Manufacturing","description":"Custom leather accessories production for brands. Card holders, wallets, small pouches, keychains. Real or PU leather. Ideal for gift-with-purchase programs and accessory collections.","category":"Leather Accessory","material":["Genuine Leather","PU Leather"],"manufacturer":{"@id":"https://mtsbag.vercel.app/#organization"},"offers":{"@type":"Offer","priceSpecification":{"@type":"UnitPriceSpecification","price":"0","priceCurrency":"USD","description":"B2B pricing varies by design, materials, quantity, and complexity. Contact for quote."},"eligibleQuantity":{"@type":"QuantitativeValue","minValue":300,"unitText":"Units"},"businessFunction":"http://purl.org/goodrelations/v1#Manufacture"}},{"@type":"WebSite","@id":"https://mtsbag.vercel.app/#website","url":"https://mtsbag.vercel.app","name":"Minh Tùng Studio — OEM Bag & Backpack Manufacturer Vietnam","description":"Minh Tùng Studio specializes in OEM bag, backpack, and accessories manufacturing in Vietnam. Custom production for fashion brands from 300 pieces.","publisher":{"@id":"https://mtsbag.vercel.app/#organization"},"inLanguage":["vi","en"],"isAccessibleForFree":true}]}
+</script>
 </head>
 <body>
 
@@ -602,8 +614,8 @@ nav.nav-scrolled .nav-logo{font-size:0.95rem}
       <p class="hero-p">Minh Tùng Studio partners with fashion brands, streetwear labels, and startups to develop and manufacture custom backpacks, sling bags, duffels, totes, and leather accessories.</p>
     </div>
     <div class="hero-btns">
-      <a href="#contact" class="btn-primary" lang="vi">Bắt Đầu Dự Án →</a>
-      <a href="#contact" class="btn-primary" lang="en">Start Your Project →</a>
+      <a href="#contact" class="btn-primary" lang="vi" data-ga="hero-start-project">Bắt Đầu Dự Án →</a>
+      <a href="#contact" class="btn-primary" lang="en" data-ga="hero-start-project">Start Your Project →</a>
       <a href="#capabilities" class="btn-secondary" lang="vi">Xem Năng Lực →</a>
       <a href="#capabilities" class="btn-secondary" lang="en">View Capabilities →</a>
     </div>
@@ -614,7 +626,7 @@ nav.nav-scrolled .nav-logo{font-size:0.95rem}
     </div>
   </div>
   <div class="hero-visual">
-    <img class="hero-img" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=80" alt="MTS factory floor — sewing & assembly (stock)">
+    <img class="hero-img" src="images/hero-factory-floor.png" alt="MTS factory floor — sewing & assembly">
     <div class="hero-overlay">
       <span class="mono-label">FACILITY</span>
       <h3 lang="vi">Xưởng May Tại Việt Nam</h3>
@@ -791,13 +803,13 @@ nav.nav-scrolled .nav-logo{font-size:0.95rem}
     <span class="mono-label">05 — NHÀ MÁY / FACILITY</span>
     <h2 class="section-title" lang="vi">Xưởng Sản Xuất Của Chúng Tôi</h2>
     <h2 class="section-title" lang="en">Inside Our Workshop</h2>
-    <p class="section-sub" lang="vi">Quy trình khép kín — từ cắt, may, logo đến kiểm định. Ảnh minh họa (stock).</p>
-    <p class="section-sub" lang="en">End-to-end process — cutting, sewing, branding, QC. Illustrative stock photos.</p>
+    <p class="section-sub" lang="vi">Quy trình khép kín — từ cắt, may, logo đến kiểm định.</p>
+        <p class="section-sub" lang="en">End-to-end process — cutting, sewing, branding, QC.</p>
     <div class="factory-grid">
-      <img class="factory-img reveal" data-delay="1" src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=700&q=80" alt="Factory assembly line (stock)" loading="lazy">
-      <img class="factory-img reveal" data-delay="2" src="https://images.unsplash.com/photo-1605908502724-9093a79a1b39?w=700&q=80" alt="Sewing station (stock)" loading="lazy">
-      <img class="factory-img reveal" data-delay="3" src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=700&q=80" alt="Workshop craftsmanship (stock)" loading="lazy">
-      <img class="factory-img reveal" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80" alt="Production equipment (stock)" loading="lazy">
+      <img class="factory-img reveal" data-delay="1" src="images/factory-assembly-line.png" alt="Factory assembly line" loading="lazy">
+      <img class="factory-img reveal" data-delay="2" src="images/factory-sewing-station.png" alt="Sewing station" loading="lazy">
+      <img class="factory-img reveal" data-delay="3" src="images/factory-craftsmanship.png" alt="Workshop craftsmanship" loading="lazy">
+      <img class="factory-img reveal" src="images/factory-cutting-equipment.png" alt="Production equipment" loading="lazy">
     </div>
   </div>
 </section>
@@ -873,11 +885,11 @@ nav.nav-scrolled .nav-logo{font-size:0.95rem}
     <span class="mono-label">07 — SẢN PHẨM / PRODUCTS</span>
     <h2 class="section-title" lang="vi">Sản Phẩm Của Chúng Tôi</h2>
     <h2 class="section-title" lang="en">What We Make</h2>
-    <p class="section-sub" lang="vi">Danh mục sản phẩm cho đối tác B2B. <em style="color:var(--muted);font-size:0.8rem">(Ảnh minh họa — placeholder)</em></p>
-    <p class="section-sub" lang="en">Product categories for B2B partners. <em style="color:var(--muted);font-size:0.8rem">(Placeholder images)</em></p>
+    <p class="section-sub" lang="vi">Danh mục sản phẩm cho đối tác B2B.</p>
+        <p class="section-sub" lang="en">Product categories for B2B partners.</p>
     <div class="prod-grid">
       <div class="prod-card">
-        <img class="ph-img" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80" alt="MTS bag product sample (stock)" loading="lazy">
+        <img class="ph-img" src="images/product-backpack-1.png" alt="MTS bag product sample (stock)" loading="lazy">
         <h4 lang="vi">Balo</h4>
         <h4 lang="en">Backpacks</h4>
         <p lang="vi">Balo ngày, laptop, thời trang. Chất liệu Canvas, PU da, hỗn hợp. Ngăn đệm, đa túi, hardware điểm nhấn.</p>
@@ -885,7 +897,7 @@ nav.nav-scrolled .nav-logo{font-size:0.95rem}
         <div class="tags"><span>Canvas</span><span>PU Leather</span><span>20–25 days</span></div>
       </div>
       <div class="prod-card">
-        <img class="ph-img" src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&q=80" alt="MTS bag product sample (stock)" loading="lazy">
+        <img class="ph-img" src="images/product-sling-bag.png" alt="MTS bag product sample (stock)" loading="lazy">
         <h4 lang="vi"> Túi Đeo Chéo / Sling</h4>
         <h4 lang="en"> Sling & Crossbody Bags</h4>
         <p lang="vi">Mini sling, túi vai, crossbody messenger. PU da, canvas, nylon. Dây điều chỉnh, ngăn khóa kéo.</p>
@@ -893,7 +905,7 @@ nav.nav-scrolled .nav-logo{font-size:0.95rem}
         <div class="tags"><span>PU Leather</span><span>Canvas</span><span>15–25 days</span></div>
       </div>
       <div class="prod-card">
-        <img class="ph-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80" alt="MTS bag product sample (stock)" loading="lazy">
+        <img class="ph-img" src="images/product-duffle-bag.png" alt="MTS bag product sample (stock)" loading="lazy">
         <h4 lang="vi"> Túi Du Lịch / Duffel</h4>
         <h4 lang="en"> Duffel Bags & Weekenders</h4>
         <p lang="vi">Gym duffel, travel weekender, mini duffle. Canvas, PU da, vải phủ. Dây đeo tháo rời, ngăn giày.</p>
@@ -901,7 +913,7 @@ nav.nav-scrolled .nav-logo{font-size:0.95rem}
         <div class="tags"><span>Canvas</span><span>PU Leather</span><span>20–25 days</span></div>
       </div>
       <div class="prod-card">
-        <img class="ph-img" src="https://images.unsplash.com/photo-1600857062241-98e5dba7f214?w=800&q=80" alt="MTS bag product sample (stock)" loading="lazy">
+        <img class="ph-img" src="images/product-tote-bag.png" alt="MTS bag product sample (stock)" loading="lazy">
         <h4 lang="vi"> Túi Tote</h4>
         <h4 lang="en"> Tote Bags</h4>
         <p lang="vi">Tote cấu trúc, tote gấp gọn, shopping tote. Canvas (gấp gọn), PU da (cấu trúc). Khóa từ, quai gia cố.</p>
@@ -909,7 +921,7 @@ nav.nav-scrolled .nav-logo{font-size:0.95rem}
         <div class="tags"><span>Canvas</span><span>PU Leather</span><span>10–25 days</span></div>
       </div>
       <div class="prod-card">
-        <img class="ph-img" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80" alt="MTS bag product sample (stock)" loading="lazy">
+        <img class="ph-img" src="images/product-backpack-1.png" alt="MTS bag product sample (stock)" loading="lazy">
         <h4 lang="vi"> Phụ Kiện Da</h4>
         <h4 lang="en"> Leather Accessories</h4>
         <p lang="vi">Card holder, ví, túi nhỏ, móc khóa. Da thật hoặc PU. Lý tưởng cho quà tặng kèm, bộ sưu tập phụ kiện.</p>
@@ -932,28 +944,28 @@ nav.nav-scrolled .nav-logo{font-size:0.95rem}
     <p class="section-sub" lang="en">Every batch inspected. Every detail documented.</p>
     <div class="qc-steps">
       <div class="qc-step">
-        <img class="ph-img" src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&q=80" alt="MTS bag product sample (stock)" loading="lazy">
+        <img class="ph-img" src="images/product-sling-bag.png" alt="MTS bag product sample (stock)" loading="lazy">
         <h4 lang="vi"> Nguyên Liệu Đầu Vào</h4>
         <h4 lang="en"> Incoming Materials</h4>
         <p lang="vi">Kiểm tra lỗi vải, đối chiếu màu sắc, chất lượng khóa/phụ kiện trước khi cắt.</p>
         <p lang="en">Fabric defects, color match vs. swatch, hardware quality checked before cutting.</p>
       </div>
       <div class="qc-step">
-        <img class="ph-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80" alt="MTS bag product sample (stock)" loading="lazy">
+        <img class="ph-img" src="images/product-duffle-bag.png" alt="MTS bag product sample (stock)" loading="lazy">
         <h4 lang="vi">Trong Sản Xuất</h4>
         <h4 lang="en">In-line Production</h4>
         <p lang="vi">Kiểm tra lực chỉ, căn chỉnh đường may, vị trí túi — trong quá trình ráp.</p>
         <p lang="en">Stitch tension, seam alignment, pocket placement checked during assembly.</p>
       </div>
       <div class="qc-step">
-        <img class="ph-img" src="https://images.unsplash.com/photo-1600857062241-98e5dba7f214?w=800&q=80" alt="MTS bag product sample (stock)" loading="lazy">
+        <img class="ph-img" src="images/product-tote-bag.png" alt="MTS bag product sample (stock)" loading="lazy">
         <h4 lang="vi"> Trước Khi Hoàn Thiện</h4>
         <h4 lang="en"> Pre-finishing</h4>
         <p lang="vi">Kiểm tra form, đối xứng, chức năng khóa kéo — trước khi gắn hardware/logo.</p>
         <p lang="en">Form check, symmetry, zipper function verified before hardware/logo attachment.</p>
       </div>
       <div class="qc-step">
-        <img class="ph-img" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80" alt="MTS bag product sample (stock)" loading="lazy">
+        <img class="ph-img" src="images/product-backpack-1.png" alt="MTS bag product sample (stock)" loading="lazy">
         <h4 lang="vi">Kiểm Định Cuối</h4>
         <h4 lang="en">Final Inspection</h4>
         <p lang="vi">100% lô hàng: đường may, hardware, logo, sạch sẽ, đóng gói. Ảnh gửi khách duyệt.</p>
@@ -1009,7 +1021,12 @@ nav.nav-scrolled .nav-logo{font-size:0.95rem}
     <p class="section-sub" lang="en">Send us your design — we'll quote within 48 hours, no commitment needed.</p>
     <div class="contact-grid">
       <div class="contact-form">
-        <form action="mailto:tungnguyenhsr@gmail.com" method="get" enctype="text/plain">
+        <form action="https://formsubmit.co/a6f93f5a704df2f6f6e00a7b0f8c8a9a" method="POST" data-ga-form="quote-request">
+          <!-- Formsubmit.co hidden fields -->
+          <input type="hidden" name="_next" value="https://mtsbag.vercel.app/#contact">
+          <input type="hidden" name="_subject" value="MTS — New Quote Request">
+          <input type="hidden" name="_captcha" value="true">
+          <input type="hidden" name="_template" value="table">
           <div class="form-group">
             <label for="name" lang="vi">Họ và Tên *</label>
             <label for="name" lang="en">Full Name *</label>
@@ -1090,24 +1107,24 @@ nav.nav-scrolled .nav-logo{font-size:0.95rem}
         <h4 lang="en"> Free Sample</h4>
         <p lang="vi">Chưa chắc về chất lượng? Gửi brief, chúng tôi làm 1 mẫu thử thực tế (phí mẫu được trừ vào đơn sản xuất).</p>
         <p lang="en">Not sure about quality? Send a brief — we'll make a real physical sample (sample fee deducted from your production order).</p>
-        <a href="#contact" class="next-link" lang="vi">Yêu cầu mẫu thử →</a>
-        <a href="#contact" class="next-link" lang="en">Request a sample →</a>
+        <a href="#contact" class="next-link" lang="vi" data-ga="request-sample">Yêu cầu mẫu thử →</a>
+        <a href="#contact" class="next-link" lang="en" data-ga="request-sample">Request a sample →</a>
       </div>
       <div class="next-card" id="portfolio">
         <h4 lang="vi"> Tải Portfolio</h4>
         <h4 lang="en"> Portfolio Download</h4>
         <p lang="vi">Xem danh mục sản phẩm đã gia công cho TeeLab, 98STU, OnFire, JMP, Elever, Owner Studio.</p>
         <p lang="en">See past work made for TeeLab, 98STU, OnFire, JMP, Elever, Owner Studio.</p>
-        <a href="#" class="next-link" lang="vi">Tải PDF portfolio →</a>
-        <a href="#" class="next-link" lang="en">Download PDF →</a>
+        <a href="MTS-Portfolio.pdf" class="next-link" lang="vi" data-ga="download-pdf" target="_blank" download>Tải PDF portfolio →</a>
+        <a href="MTS-Portfolio.pdf" class="next-link" lang="en" data-ga="download-pdf" target="_blank" download>Download PDF →</a>
       </div>
       <div class="next-card" id="thank-you">
         <h4 lang="vi">Sau Khi Liên Hệ</h4>
         <h4 lang="en">Next Step</h4>
         <p lang="vi">Cảm ơn! Chúng tôi phản hồi trong 24h → báo giá 48h → mẫu thử 7–10 ngày → sản xuất.</p>
         <p lang="en">Thank you! We reply within 24h → quote in 48h → sample in 7–10 days → production.</p>
-        <a href="#cta" class="next-link" lang="vi">Bắt Đầu Dự Án →</a>
-        <a href="#cta" class="next-link" lang="en">Start Your Project →</a>
+        <a href="#cta" class="next-link" lang="vi" data-ga="thankyou-start-project">Bắt Đầu Dự Án →</a>
+        <a href="#cta" class="next-link" lang="en" data-ga="thankyou-start-project">Start Your Project →</a>
       </div>
     </div>
   </div>
@@ -1123,8 +1140,8 @@ nav.nav-scrolled .nav-logo{font-size:0.95rem}
     <h2 lang="en">Ready to start your production?</h2>
     <p lang="vi">Kể tôi nghe về dự án của bạn → tôi sẽ phản hồi trong 24h</p>
     <p lang="en">Tell us about your project → we'll respond within 24h</p>
-    <a href="#contact" class="cta-btn" lang="vi">Bắt Đầu Dự Án →</a>
-    <a href="#contact" class="cta-btn" lang="en">Start Your Project →</a>
+    <a href="#contact" class="cta-btn" lang="vi" data-ga="closing-start-project">Bắt Đầu Dự Án →</a>
+    <a href="#contact" class="cta-btn" lang="en" data-ga="closing-start-project">Start Your Project →</a>
     <p class="cta-phone" lang="vi">Hoặc Zalo: [+84 Liên hệ]</p>
     <p class="cta-phone" lang="en">Or WhatsApp: [+84 Contact]</p>
   </div>
@@ -1284,6 +1301,31 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   }
 });
+</script>
+<!-- GA4 Event Tracking -->
+<script>
+(function(){
+  // Track CTA clicks
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('[data-ga]');
+    if (el) {
+      var action = el.getAttribute('data-ga');
+      if (typeof gtag === 'function') {
+        gtag('event', action, {'event_category': 'CTA', 'event_label': action});
+      }
+    }
+  });
+  // Track form submissions
+  document.addEventListener('submit', function(e){
+    var el = e.target.closest('[data-ga-form]');
+    if (el) {
+      var action = el.getAttribute('data-ga-form');
+      if (typeof gtag === 'function') {
+        gtag('event', action, {'event_category': 'Form', 'event_label': action});
+      }
+    }
+  });
+})();
 </script>
 </body>
 </html>
