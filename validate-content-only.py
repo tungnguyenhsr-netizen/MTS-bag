@@ -110,12 +110,21 @@ def main():
             ao = attr_part(old); an = attr_part(new)
             if ao != an:
                 # attribute portion changed -> real code change
-                # find which attr
+                # find which attr. NOTE: re.search() returns Match objects that compare
+                # by IDENTITY, not by matched text -- so we must compare .group() values.
                 for attr in ['class=', 'id=', 'src=', 'href=', 'style=', 'data-', 'loading=']:
-                    if (attr in ao.lower()) or (attr in an.lower()):
-                        if attr_part(old).lower().count(attr) != attr_part(new).lower().count(attr) or \
-                           re.search(attr+r'["\']?[^"\']*', ao.lower()) != re.search(attr+r'["\']?[^"\']*', an.lower()):
+                    present_o = attr in ao.lower()
+                    present_n = attr in an.lower()
+                    if present_o or present_n:
+                        if present_o != present_n:
+                            # attribute added or removed entirely -> code change
                             violations.append((new[:60], [f'sua {attr}']))
+                        else:
+                            mo = re.search(attr + r'["\']?[^"\']*', ao.lower())
+                            mn = re.search(attr + r'["\']?[^"\']*', an.lower())
+                            if mo and mn and mo.group() != mn.group():
+                                # same attribute name, DIFFERENT value -> code change
+                                violations.append((new[:60], [f'sua {attr}']))
                 # also CSS/token block changes
                 v = check_attrs(an)
                 if v: violations.append((new[:60], v))
