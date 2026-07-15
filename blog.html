@@ -121,11 +121,6 @@
     <h1 class="section-title" lang="en">Bag Manufacturing Insights</h1>
     <p class="section-sub" lang="vi">Hướng dẫn cho brand tìm đối tác sản xuất túi tại Việt Nam.</p>
     <p class="section-sub" lang="en">Guides for brands sourcing bag manufacturing in Vietnam.</p>
-    <div class="blog-chips">
-      <button class="blog-chip is-active" type="button" data-filter="all">All</button>
-      <button class="blog-chip" type="button" data-filter="oem">OEM</button>
-      <button class="blog-chip" type="button" data-filter="startup">Startup</button>
-    </div>
   </div>
 </section>
 
@@ -134,7 +129,7 @@
   <div class="section-inner reveal">
     <div class="blog-grid">
 
-      <article class="blog-card" data-cat="oem" data-od-id="blog-card-oem">
+      <article class="blog-card" data-od-id="blog-card-oem">
         <a href="#oem-guide" class="blog-card-media" aria-label="OEM Bag Manufacturer Vietnam">
           <img src="images/factory-sewing-station.png" alt="MTS factory sewing station" loading="lazy">
         </a>
@@ -148,12 +143,10 @@
             <span class="meta-item"><svg class="meta-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>5 MIN READ</span>
             <span class="meta-item"><svg class="meta-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>15/07/2026</span>
           </div>
-          <a href="#oem-guide" class="blog-inline-link" lang="vi">Đọc tiếp →</a>
-          <a href="#oem-guide" class="blog-inline-link" lang="en">Read more →</a>
         </div>
       </article>
 
-      <article class="blog-card" data-cat="startup" data-od-id="blog-card-start">
+      <article class="blog-card" data-od-id="blog-card-start">
         <a href="#start-brand" class="blog-card-media" aria-label="How to Start a Bag Brand">
           <img src="images/product-tote-bag.png" alt="MTS tote bag product" loading="lazy">
         </a>
@@ -167,8 +160,6 @@
             <span class="meta-item"><svg class="meta-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>6 MIN READ</span>
             <span class="meta-item"><svg class="meta-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>15/07/2026</span>
           </div>
-          <a href="#start-brand" class="blog-inline-link" lang="vi">Đọc tiếp →</a>
-          <a href="#start-brand" class="blog-inline-link" lang="en">Read more →</a>
         </div>
       </article>
 
@@ -478,20 +469,6 @@ document.addEventListener('DOMContentLoaded', function(){
     a.addEventListener('click', function(){ if (menuToggle) menuToggle.checked = false; });
   });
 
-  // Blog category filter (All / OEM / Startup)
-  var chips = document.querySelectorAll('.blog-chip');
-  var cards = document.querySelectorAll('.blog-card[data-cat]');
-  chips.forEach(function(c){
-    c.addEventListener('click', function(){
-      chips.forEach(function(x){ x.classList.remove('is-active'); });
-      c.classList.add('is-active');
-      var f = c.getAttribute('data-filter');
-      cards.forEach(function(card){
-        var show = (f === 'all') || (card.getAttribute('data-cat') === f);
-        card.style.display = show ? '' : 'none';
-      });
-    });
-  });
  } catch(err) {
   console.error('MTS interaction script error:', err);
  }
