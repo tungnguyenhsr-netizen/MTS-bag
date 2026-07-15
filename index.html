@@ -12,8 +12,8 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-XXXXXXXXXX');
 </script>
-<title>OEM Bag &amp; Backpack Manufacturer Vietnam | Minh Tùng Studio</title>
-<meta name="description" content="MTS — OEM bag manufacturer Vietnam. Custom backpacks, sling bags, totes, duffels. MOQ 300, 10–25 day lead time, in-house QC. B2B only. Request a quote.">
+<title>Minh Tùng Studio</title>
+<meta name="description" content="Minh Tùng Studio (MTS) — OEM bag & backpack manufacturer in Vietnam. Custom manufacturing from 300 pieces: backpacks, sling bags, totes, duffels. Transparent quotes for fashion brands.">
 <link rel="canonical" href="https://mts-bag.vercel.app">
 <meta property="og:title" content="Minh Tùng Studio — OEM Bag & Backpack Manufacturer Vietnam">
 <meta property="og:description" content="Custom bag manufacturing in Vietnam. From 300 pieces. OEM/ODM backpacks, sling bags, totes, duffels for fashion brands.">
@@ -33,10 +33,561 @@ gtag('config', 'G-XXXXXXXXXX');
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/mts.css">
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-sans);color:var(--text);background:var(--accent);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* ===== DESIGN TOKENS (Astryx-style system, MTS brand) ===== */
+:root{
+  /* --- Color --- */
+  --color-bg:#F5F0EB;          /* cream */
+  --color-surface:#FFFFFF;     /* card surface */
+  --color-ink:#1A1A1A;         /* industrial black */
+  --color-ink-soft:#2A2A2A;    /* dividers on dark */
+  --color-accent:#C8A96E;      /* warm gold (single accent) */
+  --color-text:var(--color-ink);
+  --color-muted:#6B6258;
+  --color-border:#E2D9CC;
+  --color-border-dark:#2A2A2A;
+
+  /* --- Typography --- */
+  --font-sans:'Inter',-apple-system,system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --fs-display:clamp(2.4rem,5vw,3.6rem);
+  --fs-h2:clamp(1.6rem,3vw,2.2rem);
+  --fs-h3:1.2rem;
+  --fs-body:1rem;
+  --fs-small:0.85rem;
+  --fs-mono:0.62rem;
+
+  /* --- Spacing scale (8px base) --- */
+  --space-xs:8px;
+  --space-sm:16px;
+  --space-md:24px;
+  --space-lg:48px;
+  --space-xl:80px;
+  --space-2xl:112px;
+  --max-w:1200px;
+
+  /* --- Radius (Astryx posture) ---
+     inner/element 8px · interactive 12px · container/card 16px · page section 32px */
+  --radius-sm:8px;
+  --radius-md:12px;
+  --radius-lg:16px;
+  --radius-section:32px;
+
+  /* --- Motion (token-driven, subtle) --- */
+  --motion-fast:0.2s;
+  --motion-base:0.4s;
+  --motion-slow:0.7s;
+  --ease-standard:cubic-bezier(0.4,0,0.2,1);
+  --ease-out:cubic-bezier(0,0,0.2,1);
+
+  /* --- Borders (Astryx: 1px semi-transparent, light/dark) --- */
+  --border-light:rgba(26,26,26,0.10);   /* #1A1A1A @ 10% on cream */
+  --border-dark:rgba(255,255,255,0.12);  /* white @ 12% on ink */
+
+  /* --- Elevation (Astryx: low/med/high, semi-transparent black) --- */
+  --elevation-0:0 0 0 1px var(--color-border);
+  --elevation-1:0 1px 8px rgba(26,26,26,0.06);   /* low */
+  --elevation-2:0 2px 12px rgba(26,26,26,0.08);  /* med */
+  --elevation-3:0 2px 24px rgba(26,26,26,0.10);  /* high */
+}
+
+/* legacy aliases so existing rules keep working */
+:root{
+  --primary:var(--color-ink);
+  --gold:var(--color-accent);
+  --accent:var(--color-bg);
+  --text:var(--color-text);
+  --muted:var(--color-muted);
+  --border:var(--border-light);
+  --dark-border:var(--border-dark);
+  --success:var(--color-accent);
+}
+
+/* ===== LANGUAGE TOGGLE SYSTEM (robust) ===== */
+body:not(.show-en) [lang="en"]{display:none !important}
+body.show-en [lang="vi"]{display:none !important}
+body.show-en [lang="en"]{display:block}
+/* inline vi/en pairs that should stay inline (stats, etc.) */
+body.show-en [lang="en"].inline,body:not(.show-en) [lang="vi"].inline{display:inline !important}
+
+/* ===== NAVIGATION ===== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:var(--color-bg);border-bottom:1px solid var(--border);
+  height:48px;
+  transition:height var(--motion-base) var(--ease-out),box-shadow var(--motion-base) var(--ease-out),background var(--motion-base) var(--ease-out);
+}
+.nav-inner{
+  max-width:var(--max-w);margin:0 auto;padding:0 var(--space-md);
+  display:flex;align-items:center;justify-content:space-between;height:100%;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;text-decoration:none;
+}
+.nav-logo svg{width:28px;height:28px;display:block;flex-shrink:0}
+.nav-logo-img{height:38px;width:auto;display:block}
+.nav-logo-text{font-size:1.05rem;font-weight:800;letter-spacing:0.05em;color:var(--color-ink)}
+.nav-logo-text span{color:var(--gold)}
+.nav-links{display:flex;gap:var(--space-md);align-items:center}
+.nav-links a{
+  font-size:0.85rem;font-weight:500;color:var(--text);
+  transition:color var(--motion-fast);
+}
+.nav-links a:hover{color:var(--gold)}
+.lang-toggle{
+  background:none;border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:6px 12px;font-family:var(--font-sans);font-size:0.8rem;
+  font-weight:600;color:var(--text);cursor:pointer;transition:all var(--motion-fast);
+}
+.lang-toggle:hover{border-color:var(--gold);color:var(--gold)}
+.nav-actions{display:flex;align-items:center;gap:var(--space-sm)}
+.nav-cta{
+  background:var(--gold);color:var(--primary);padding:8px 18px;border-radius:var(--radius-md);
+  font-size:0.8rem;font-weight:600;transition:background var(--motion-fast);
+}
+.nav-cta:hover{background:var(--color-accent)}
+.nav-cta:active{transform:scale(0.97)}
+
+/* Hamburger */
+.hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--primary);transition:all 0.3s}
+#menu-toggle{display:none}
+
+/* ===== SECTIONS COMMON ===== */
+section{padding:var(--space-2xl) var(--space-md)}
+.section-inner{max-width:var(--max-w);margin:0 auto}
+.section-title{
+  font-size:2rem;font-weight:700;margin-bottom:var(--space-sm);
+  color:var(--primary);letter-spacing:-0.01em;
+}
+.section-sub{
+  font-size:1rem;color:var(--muted);margin-bottom:var(--space-lg);
+  max-width:640px;
+}
+.text-gold{color:var(--gold)}
+
+/* ===== MONO LABEL & DIVIDER (tastecode) ===== */
+.mono-label{
+  font-family:var(--font-mono);
+  font-size:0.75rem;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:var(--space-sm);
+  display:block;
+}
+.divider{
+  border:0;height:1px;background:var(--border);
+  margin:0 auto;max-width:var(--max-w);
+}
+#hero .divider,#certifications .divider,#cta .divider{background:var(--dark-border)}
+/* muted text is lighter on dark backgrounds */
+#hero .stat-label,#certifications .section-sub,#cta p,#cta .cta-phone{color:rgba(255,255,255,0.55)}
+.section-inner > .section-title:first-of-type{margin-top:0}
+
+/* ===== HERO ===== */
+#hero{
+  background:var(--primary);color:var(--color-surface);min-height:80vh;
+  display:flex;align-items:center;padding-top:48px;
+}
+.hero-content{
+  max-width:var(--max-w);margin:0 auto;padding:var(--space-xl) var(--space-md);
+  flex:1;display:flex;flex-direction:column;gap:0;
+}
+.hero-visual{
+  flex:0 0 45%;border:1px solid var(--dark-border);
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--color-ink-soft) 0%,var(--color-ink) 100%);
+  position:relative;overflow:hidden;align-self:stretch;
+}
+.hero-visual .placeholder-tag{
+  font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--gold);opacity:0.7;
+}
+.hero-h1{
+  font-size:clamp(2rem,5vw,3.5rem);font-weight:800;line-height:1.1;
+  margin-bottom:var(--space-sm);letter-spacing:-0.02em;
+}
+.hero-h2{
+  font-size:clamp(1rem,2.5vw,1.25rem);color:var(--gold);font-weight:600;
+  margin-bottom:var(--space-md);letter-spacing:0.02em;
+}
+.hero-p{
+  font-size:1rem;color:var(--color-accent);opacity:0.85;max-width:65ch;margin-bottom:var(--space-lg);
+  line-height:1.7;
+}
+.hero-btns{display:flex;gap:var(--space-sm);flex-wrap:wrap;margin-bottom:var(--space-xl)}
+.btn-primary{
+  background:var(--gold);color:var(--primary);padding:14px 32px;border-radius:var(--radius-md);
+  font-weight:600;font-size:0.95rem;transition:background var(--motion-fast);display:inline-block;
+}
+.btn-primary:hover{background:var(--color-accent)}
+.btn-primary:active{transform:scale(0.97)}
+.btn-primary:disabled{opacity:0.5;cursor:not-allowed;pointer-events:none}
+.btn-secondary{
+  border:1px solid var(--color-surface);color:var(--color-surface);padding:14px 32px;border-radius:var(--radius-md);
+  font-weight:600;font-size:0.95rem;transition:all var(--motion-fast);display:inline-block;
+}
+.btn-secondary:hover{background:rgba(255,255,255,0.1)}
+.btn-secondary:active{transform:scale(0.97)}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-md);
+  max-width:600px;margin-top:var(--space-lg);
+  border-top:1px solid var(--dark-border);padding-top:var(--space-md);
+}
+.stat-num{
+  font-family:var(--font-mono);font-size:1.5rem;font-weight:600;color:var(--color-surface);
+}
+.stat-label{font-size:0.8rem;color:var(--muted);margin-top:4px}
+
+/* ===== TRUST STRIP ===== */
+#trust{
+  background:var(--accent);padding:var(--space-lg) var(--space-md);text-align:center;
+}
+#trust p{font-size:0.9rem;color:var(--muted);margin-bottom:var(--space-md)}
+.partner-list{
+  display:flex;flex-wrap:wrap;gap:var(--space-sm);justify-content:center;
+}
+.partner-item{
+  border:1px solid var(--border);border-radius:9999px;padding:8px 18px;
+  font-size:0.85rem;font-weight:600;color:var(--muted);
+}
+
+/* ===== CAPABILITIES ===== */
+#capabilities{background:var(--accent)}
+.caps-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:var(--space-md);
+}
+.cap-card{
+  background:var(--color-surface);padding:var(--space-md);border-radius:var(--radius-lg);
+  border:1px solid var(--border);transition:border-color 0.2s;
+}
+.cap-card:hover{border-color:var(--gold)}
+.cap-icon{margin-bottom:var(--space-sm);color:var(--gold)}
+.cap-icon svg{width:32px;height:32px;display:block}
+.cap-title{font-size:1rem;font-weight:700;color:var(--gold);text-transform:uppercase;margin-bottom:var(--space-xs);letter-spacing:0.06em}
+.cap-text{font-size:0.85rem;color:var(--muted);line-height:1.6}
+
+/* ===== PROCESS TIMELINE ===== */
+#process{background:var(--accent)}
+.process-steps{
+  display:flex;flex-wrap:wrap;gap:0;justify-content:center;
+  position:relative;max-width:900px;margin:0 auto;
+}
+.process-step{
+  flex:1 1 120px;text-align:center;padding:var(--space-md) var(--space-sm);
+  position:relative;
+}
+.step-num{
+  width:44px;height:44px;border-radius:50%;background:var(--color-surface);
+  border:2px solid var(--gold);color:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono);font-weight:600;
+  margin:0 auto var(--space-xs);
+}
+.step-label{font-size:0.8rem;font-weight:600;color:var(--primary)}
+.step-sub{font-size:0.7rem;color:var(--muted)}
+
+/* ===== ABOUT ===== */
+#about{background:var(--accent)}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);
+  align-items:start;
+}
+.about-text p{margin-bottom:var(--space-sm);font-size:0.95rem;color:var(--muted)}
+
+/* ===== SERVICES ===== */
+#services{background:var(--accent)}
+.services-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:var(--space-md);
+}
+.service-card{
+  background:var(--color-surface);padding:var(--space-md);border-radius:var(--radius-lg);
+  border:1px solid var(--border);transition:border-color 0.2s;
+}
+.service-card:hover{border-color:var(--gold)}
+.service-card h4{font-size:1rem;font-weight:700;margin-bottom:var(--space-xs)}
+.service-card p{font-size:0.85rem;color:var(--muted);line-height:1.6}
+
+.lead-time-table{
+  width:100%;border-collapse:collapse;margin-top:var(--space-md);
+  font-size:0.85rem;
+}
+.lead-time-table th,.lead-time-table td{
+  padding:10px var(--space-sm);text-align:left;border-bottom:1px solid var(--border);
+}
+.lead-time-table th{font-weight:600;color:var(--gold);text-transform:uppercase;font-size:0.75rem}
+.lead-time-table td{color:var(--muted)}
+
+/* ===== PRODUCTS ===== */
+#products{background:var(--accent)}
+.prod-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:var(--space-md);
+}
+.prod-card{
+  background:var(--color-surface);padding:var(--space-md);border-radius:var(--radius-lg);
+  border:1px solid var(--border);transition:border-color 0.2s;
+}
+.prod-card:hover{border-color:var(--gold)}
+.prod-card h4{font-size:1rem;font-weight:700;margin-bottom:var(--space-xs)}
+.prod-card p{font-size:0.82rem;color:var(--muted);line-height:1.6}
+.prod-card .tags{
+  display:flex;flex-wrap:wrap;gap:4px;margin-top:var(--space-sm);
+}
+.prod-card .tags span{
+  background:var(--border);padding:3px 10px;border-radius:9999px;
+  font-size:0.7rem;color:var(--muted);
+}
+
+/* ===== QUALITY ===== */
+#quality{background:var(--accent)}
+.qc-steps{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:var(--space-md);
+}
+.qc-step{
+  background:var(--color-surface);padding:var(--space-md);border-radius:var(--radius-lg);
+  border:1px solid var(--border);transition:border-color 0.2s;
+}
+.qc-step:hover{border-color:var(--gold)}
+.qc-step h4{font-size:0.95rem;font-weight:700;margin-bottom:var(--space-xs)}
+.qc-step p{font-size:0.82rem;color:var(--muted);line-height:1.6}
+
+/* ===== CERTIFICATIONS ===== */
+#certifications{background:var(--primary);color:var(--color-surface);text-align:center}
+#certifications .section-title{color:var(--color-surface)}
+#certifications .section-sub{color:var(--muted);margin:0 auto var(--space-lg)}
+.cert-badges{
+  display:flex;flex-wrap:wrap;gap:var(--space-sm);justify-content:center;
+}
+.cert-badge{
+  border:1px solid var(--gold);border-radius:9999px;padding:10px 24px;
+  font-size:0.9rem;font-weight:600;color:var(--gold);
+}
+
+/* ===== CTA ===== */
+#cta{
+  background:var(--primary);color:var(--color-surface);text-align:center;
+  padding:var(--space-2xl) var(--space-md);
+}
+#cta h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:var(--space-sm);letter-spacing:-0.01em}
+#cta p{color:var(--muted);margin-bottom:var(--space-lg);max-width:500px;margin-left:auto;margin-right:auto}
+.cta-btn{
+  background:var(--gold);color:var(--primary);padding:16px 40px;border-radius:var(--radius-md);
+  font-weight:700;font-size:1rem;display:inline-block;transition:background var(--motion-fast);
+}
+.cta-btn:hover{background:var(--color-accent)}
+.cta-btn:active{transform:scale(0.97)}
+.cta-phone{margin-top:var(--space-md);color:var(--muted);font-size:0.85rem}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--accent);padding:var(--space-xl) var(--space-md);
+  border-top:1px solid var(--border);
+}
+.footer-inner{
+  max-width:var(--max-w);margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1.5fr;gap:var(--space-xl);
+}
+footer h4{font-size:0.9rem;font-weight:700;margin-bottom:var(--space-sm);color:var(--primary)}
+footer p,footer a{font-size:0.85rem;color:var(--muted);line-height:1.8}
+footer a:hover{color:var(--gold)}
+.footer-logo{display:flex;align-items:center;gap:12px;margin-bottom:var(--space-xs)}
+.footer-logo svg{width:40px;height:40px;display:block;flex-shrink:0}
+.footer-logo-img{height:52px;width:auto;display:block}
+.footer-logo-text{font-size:1.05rem;font-weight:800;letter-spacing:0.05em;color:var(--color-ink)}
+.footer-logo-text span{color:var(--gold)}
+.footer-bottom{
+  max-width:var(--max-w);margin:var(--space-lg) auto 0;
+  padding-top:var(--space-md);border-top:1px solid var(--border);
+  text-align:center;font-size:0.8rem;color:var(--muted);
+}
+
+/* ===== CONTACT SECTION ===== */
+#contact{background:var(--color-surface)}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);
+}
+.contact-info p{margin-bottom:var(--space-sm);font-size:0.9rem;color:var(--muted)}
+.contact-info strong{color:var(--primary)}
+.contact-form{}
+.form-group{margin-bottom:var(--space-sm)}
+.form-group label{
+  display:block;font-size:0.8rem;font-weight:600;margin-bottom:4px;color:var(--text);
+}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-md);
+  font-family:var(--font-sans);font-size:0.9rem;background:var(--color-surface);color:var(--text);
+}
+.form-group textarea{min-height:100px;resize:vertical}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  outline:none;border-color:var(--gold);
+}
+.submit-btn{
+  background:var(--gold);color:var(--primary);padding:12px 28px;border:none;
+  border-radius:var(--radius-md);font-weight:600;font-size:0.9rem;cursor:pointer;
+  transition:background var(--motion-fast);
+}
+.submit-btn:hover{background:var(--color-accent)}
+.submit-btn:active{transform:scale(0.97)}
+.submit-btn:disabled{opacity:0.5;cursor:not-allowed}
+
+/* ===== NEXT-STEP BLOCKS (free sample / portfolio / thank-you) ===== */
+.next-steps{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:var(--space-md);margin-top:var(--space-xl);
+}
+.next-card{
+  border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-md);
+  background:var(--accent);
+}
+.next-card h4{font-size:1rem;font-weight:700;color:var(--primary);margin-bottom:var(--space-xs)}
+.next-card p{font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:var(--space-sm)}
+.next-link{
+  display:inline-block;font-size:0.85rem;font-weight:600;color:var(--primary);
+  border-bottom:1px solid var(--gold);padding-bottom:2px;
+  transition:color var(--motion-fast),border-color var(--motion-fast);
+}
+.next-link:hover{color:var(--gold);border-color:var(--color-accent)}
+@media(max-width:900px){
+  .factory-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .nav-links{
+    position:fixed;top:48px;left:0;right:0;background:var(--accent);
+    flex-direction:column;padding:var(--space-md);
+    border-bottom:1px solid var(--border);
+    transform:translateY(-120%);transition:transform 0.3s;
+    gap:var(--space-sm);align-items:stretch;
+    max-height:calc(100vh - 48px);overflow-y:auto;
+  }
+  .nav-links a{padding:6px 0}
+  .nav-actions{
+    flex-direction:column;align-items:stretch;gap:var(--space-sm);
+    margin-top:var(--space-xs);padding-top:var(--space-sm);
+    border-top:1px solid var(--border);
+  }
+  .nav-actions .lang-toggle,.nav-actions .nav-cta{
+    width:100%;text-align:center;padding:12px 18px;font-size:0.9rem;
+  }
+  .hamburger{display:flex;z-index:1001;position:relative}
+  #menu-toggle:checked ~ .nav-links{transform:translateY(0)}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  #hero{flex-direction:column;gap:var(--space-lg)}
+  .hero-visual{display:none}
+  .hero-stats{grid-template-columns:1fr;text-align:center}
+  .footer-inner{grid-template-columns:1fr;gap:var(--space-md)}
+  section{padding:var(--space-lg) var(--space-sm)}
+  .process-step{flex:1 1 80px}
+}
+@media(max-width:480px){
+  .hero-btns{flex-direction:column}
+  .btn-primary,.btn-secondary{text-align:center}
+}
+.lang-toggle .globe{font-size:0.85em}
+
+/* ===== ACCESSIBILITY (Astryx principle: a11y by default) ===== */
+:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px;border-radius:var(--radius-sm)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation-duration:0.001ms !important;transition-duration:0.001ms !important}
+}
+/* card hover uses elevation token instead of heavy shadow */
+.cap-card:hover,.service-card:hover,.prod-card:hover,.qc-step:hover{
+  box-shadow:var(--elevation-2);transform:translateY(-6px) scale(1.02);
+  transition:transform var(--motion-base) var(--ease-out),box-shadow var(--motion-base) var(--ease-out);
+}
+.btn-primary:hover,.btn-secondary:hover,.nav-cta:hover,.lang-toggle:hover{
+  transition:all var(--motion-fast) var(--ease-standard);
+}
+
+/* ===== STOCK IMAGE ===== */
+.ph-img{
+  width:100%;aspect-ratio:4/3;object-fit:cover;display:block;
+  margin-bottom:var(--space-sm);border:1px solid var(--border);border-radius:var(--radius-sm);
+  background:var(--accent);transition:transform var(--motion-slow) var(--ease-out);
+}
+.prod-card:hover .ph-img,.qc-step:hover .ph-img{transform:scale(1.03)}
+.hero-img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ===== HERO ENHANCEMENT ===== */
+.hero-visual{position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border)}
+.hero-visual .hero-img{position:absolute;inset:0;width:100%;height:100%}
+.hero-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,26,26,0.25) 0%,rgba(26,26,26,0.75) 100%)}
+.hero-overlay{position:absolute;left:var(--space-md);bottom:var(--space-md);right:var(--space-md);z-index:2;color:var(--color-surface);text-shadow:0 2px 20px rgba(26,26,26,0.85)}
+.hero-overlay .mono-label{color:var(--color-accent)}
+.hero-overlay h3{font-size:1.1rem;font-weight:700;margin-top:var(--space-xs);letter-spacing:0.02em}
+.hero-factory-tag{font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:0.18em;text-transform:uppercase;opacity:0.85}
+
+/* ===== FACTORY GALLERY ===== */
+.factory-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-md);margin-top:var(--space-lg)}
+.factory-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border:1px solid var(--border);border-radius:var(--radius-sm);transition:transform var(--motion-slow) var(--ease-out)}
+.factory-img:hover{transform:scale(1.03)}
+
+/* ===== ANIMATION POLISH ===== */
+/* SAFE FALLBACK: content VISIBLE by default. Only hide+animate when JS is active
+   AND adds .reveal-active to <html>. If JS fails/crashes, content stays visible. */
+.reveal{opacity:1;transform:none}
+html.reveal-active .reveal{opacity:0;transform:translateY(24px);transition:opacity var(--motion-base) var(--ease-out),transform var(--motion-base) var(--ease-out)}
+html.reveal-active .reveal.in-view{opacity:1;transform:none}
+html.reveal-active .reveal[data-delay="1"]{transition-delay:0.08s}
+html.reveal-active .reveal[data-delay="2"]{transition-delay:0.16s}
+html.reveal-active .reveal[data-delay="3"]{transition-delay:0.24s}
+/* hero entrance */
+@keyframes heroIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.hero-content .mono-label,.hero-content h1,.hero-content h2,.hero-content p,.hero-btns,.hero-stats{animation:heroIn 0.7s var(--ease-out) both}
+.hero-content h1{animation-delay:0.05s}
+.hero-content h2{animation-delay:0.12s}
+.hero-content p{animation-delay:0.19s}
+.hero-btns{animation-delay:0.26s}
+.hero-stats{animation-delay:0.33s}
+
+@media(prefers-reduced-motion:reduce){
+  html.reveal-active .reveal{opacity:1;transform:none;transition:none}
+  .hero-content .mono-label,.hero-content h1,.hero-content h2,.hero-content p,.hero-btns,.hero-stats{animation:none}
+  .hero-visual{animation:none}
+  .ph-img,.factory-img,.hero-img{transition:none}
+}
+
+/* ===== BACK TO TOP ===== */
+#back-to-top{
+  position:fixed;bottom:24px;right:24px;z-index:999;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--gold);color:var(--primary);
+  border:none;cursor:pointer;display:grid;place-items:center;
+  opacity:0;pointer-events:none;
+  transform:translateY(12px);
+  transition:opacity 0.3s var(--ease-out),transform 0.3s var(--ease-out);
+  box-shadow:var(--elevation-2);
+}
+#back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+#back-to-top:hover{background:var(--color-accent);transform:translateY(-2px) scale(1.05)}
+#back-to-top:active{transform:scale(0.95)}
+#back-to-top svg{width:20px;height:20px}
+.nav-links a.active-link{color:var(--gold);position:relative}
+.nav-links a.active-link::after{content:"";position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--gold);border-radius:1px}
+nav.nav-scrolled{height:40px;box-shadow:var(--elevation-1);background:rgba(245,240,235,0.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+nav.nav-scrolled .nav-logo svg{width:22px;height:22px}
+nav.nav-scrolled .nav-logo-img{height:30px}
+nav.nav-scrolled .nav-logo-text{font-size:0.95rem}
+@media(max-width:768px){
+  nav.nav-scrolled{height:40px}
+  #back-to-top{bottom:16px;right:16px;width:44px;height:44px}
+}
+</style>
 
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://mtsbag.vercel.app/#organization", "name": "Minh Tùng Studio", "alternateName": "MTS", "url": "https://mtsbag.vercel.app", "description": "OEM bag and backpack manufacturer in Ho Chi Minh City, Vietnam. Specializing in custom backpacks, sling bags, duffels, totes, and leather accessories for fashion brands, streetwear labels, and startups.", "email": "tungnguyenhsr@gmail.com", "address": {"@type": "PostalAddress", "addressLocality": "Ho Chi Minh City", "addressCountry": "VN"}, "founder": {"@type": "Person", "name": "Nguyễn Mạnh Tùng", "alternateName": "Tommy"}, "knowsAbout": ["OEM Manufacturing", "Bag and Backpack Production", "Leather Goods Manufacturing", "Textile Manufacturing", "ODM Services"], "numberOfEmployees": {"@type": "QuantitativeValue", "minValue": 10, "maxValue": 50}, "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Manufacturing Services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "OEM Manufacturing", "description": "Manufacture your bag or backpack design. Send techpack or reference product. We source materials, produce samples, and manufacture bulk."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "ODM Design & Material Optimization", "description": "Design consulting and material alternatives to reduce production costs by 10-20% while maintaining quality and feel."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Logo & Branding Services", "description": "Logo engraving, embossing, heat transfer printing, and custom hardware branding for bags and accessories."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Packaging & Logistics", "description": "Packaging per Shopee/TikTok standards and logistics coordination for domestic and international delivery."}}]}, "makesOffer": [{"@id": "https://mtsbag.vercel.app/#product-backpack"}, {"@id": "https://mtsbag.vercel.app/#product-sling"}, {"@id": "https://mtsbag.vercel.app/#product-duffel"}, {"@id": "https://mtsbag.vercel.app/#product-tote"}, {"@id": "https://mtsbag.vercel.app/#product-leather-accessories"}], "contactPoint": [{"@type": "ContactPoint", "contactType": "sales", "telephone": "+84 773 108 320", "contactOption": "TollFree", "description": "Zalo / Phone (Tùng)", "availableLanguage": ["Vietnamese", "English"]}, {"@type": "ContactPoint", "contactType": "sales", "telephone": "+84 979 768 997", "description": "WhatsApp (Lâm)", "availableLanguage": ["Vietnamese", "English"]}]}, {"@type": "Product", "@id": "https://mtsbag.vercel.app/#product-backpack", "name": "OEM Backpack Manufacturing", "description": "Custom backpack production for fashion brands and streetwear labels. Daypacks, laptop backpacks, and fashion backpacks. Padded compartments, multi-pocket configurations, custom hardware.", "category": "Backpack", "material": ["Canvas", "PU Leather", "Nylon", "Polyester"], "manufacturer": {"@id": "https://mtsbag.vercel.app/#organization"}, "offers": {"@type": "Offer", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "0", "priceCurrency": "USD", "description": "B2B pricing varies by design, materials, quantity, and complexity. Contact for quote."}, "eligibleQuantity": {"@type": "QuantitativeValue", "minValue": 300, "unitText": "Units"}, "businessFunction": "http://purl.org/goodrelations/v1#Manufacture"}}, {"@type": "Product", "@id": "https://mtsbag.vercel.app/#product-sling", "name": "OEM Sling & Crossbody Bag Manufacturing", "description": "Custom sling bags and crossbody messenger bags for brands. Mini slings, shoulder bags, crossbody messengers. Adjustable straps, zip compartments, custom hardware.", "category": "Sling Bag", "material": ["PU Leather", "Canvas", "Nylon"], "manufacturer": {"@id": "https://mtsbag.vercel.app/#organization"}, "offers": {"@type": "Offer", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "0", "priceCurrency": "USD", "description": "B2B pricing varies by design, materials, quantity, and complexity. Contact for quote."}, "eligibleQuantity": {"@type": "QuantitativeValue", "minValue": 300, "unitText": "Units"}, "businessFunction": "http://purl.org/goodrelations/v1#Manufacture"}}, {"@type": "Product", "@id": "https://mtsbag.vercel.app/#product-duffel", "name": "OEM Duffel Bag Manufacturing", "description": "Custom duffel bags and weekenders for brands. Gym duffels, travel weekender bags, mini duffles. Detachable straps, shoe compartments, coated fabric options.", "category": "Duffel Bag", "material": ["Canvas", "PU Leather", "Coated Fabrics", "Nylon"], "manufacturer": {"@id": "https://mtsbag.vercel.app/#organization"}, "offers": {"@type": "Offer", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "0", "priceCurrency": "USD", "description": "B2B pricing varies by design, materials, quantity, and complexity. Contact for quote."}, "eligibleQuantity": {"@type": "QuantitativeValue", "minValue": 300, "unitText": "Units"}, "businessFunction": "http://purl.org/goodrelations/v1#Manufacture"}}, {"@type": "Product", "@id": "https://mtsbag.vercel.app/#product-tote", "name": "OEM Tote Bag Manufacturing", "description": "Custom tote bag production for brands. Structured totes with magnetic closures, foldable totes for events and retail, shopping totes. Reinforced handles, custom lining.", "category": "Tote Bag", "material": ["Canvas", "PU Leather", "Cotton"], "manufacturer": {"@id": "https://mtsbag.vercel.app/#organization"}, "offers": {"@type": "Offer", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "0", "priceCurrency": "USD", "description": "B2B pricing varies by design, materials, quantity, and complexity. Contact for quote."}, "eligibleQuantity": {"@type": "QuantitativeValue", "minValue": 300, "unitText": "Units"}, "businessFunction": "http://purl.org/goodrelations/v1#Manufacture"}}, {"@type": "Product", "@id": "https://mtsbag.vercel.app/#product-leather-accessories", "name": "OEM Leather Accessory Manufacturing", "description": "Custom leather accessories production for brands. Card holders, wallets, small pouches, keychains. Real or PU leather. Ideal for gift-with-purchase programs and accessory collections.", "category": "Leather Accessory", "material": ["Genuine Leather", "PU Leather"], "manufacturer": {"@id": "https://mtsbag.vercel.app/#organization"}, "offers": {"@type": "Offer", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "0", "priceCurrency": "USD", "description": "B2B pricing varies by design, materials, quantity, and complexity. Contact for quote."}, "eligibleQuantity": {"@type": "QuantitativeValue", "minValue": 300, "unitText": "Units"}, "businessFunction": "http://purl.org/goodrelations/v1#Manufacture"}}, {"@type": "WebSite", "@id": "https://mtsbag.vercel.app/#website", "url": "https://mtsbag.vercel.app", "name": "Minh Tùng Studio — OEM Bag & Backpack Manufacturer Vietnam", "description": "Minh Tùng Studio specializes in OEM bag, backpack, and accessories manufacturing in Vietnam. Custom production for fashion brands from 300 pieces.", "publisher": {"@id": "https://mtsbag.vercel.app/#organization"}, "inLanguage": ["vi", "en"], "isAccessibleForFree": true}, {"@type": "FAQPage", "@id": "https://mtsbag.vercel.app/#faq", "mainEntity": [{"@type": "Question", "name": "What is MOQ and what is the minimum order for custom bags at MTS?", "acceptedAnswer": {"@type": "Answer", "text": "MTS minimum order quantity (MOQ) is 300 pieces per SKU for standard orders. Volume orders of 1,000+ pieces receive 8–15% discount. Multi-SKU orders (2+ designs) get an additional 5% off total. We also offer free trial samples before bulk production."}}, {"@type": "Question", "name": "What is the difference between OEM and ODM bag manufacturing?", "acceptedAnswer": {"@type": "Answer", "text": "OEM (Original Equipment Manufacturing): you provide the design, techpack, and material specs — we produce exactly to your requirements. ODM (Original Design Manufacturing): we help develop the design from your brief, recommend materials, and optimize construction for cost savings of 10–20%. MTS offers both services."}}, {"@type": "Question", "name": "How long does bag production take in Vietnam?", "acceptedAnswer": {"@type": "Answer", "text": "Lead times at MTS range from 10–25 days depending on product complexity. Tote bags: 10–18 days. Sling/crossbody bags: 15–25 days. Backpacks and duffels: 20–25 days. Leather accessories: 10–15 days. Sampling takes 7–10 days. From brief to delivered goods, plan 6–8 weeks for the first run."}}, {"@type": "Question", "name": "What quality control standards do you use?", "acceptedAnswer": {"@type": "Answer", "text": "MTS follows AQL 2.5 (Acceptable Quality Limit) inspection standards. Every batch passes four QC stages: incoming material check, in-line production check, pre-finishing inspection, and final inspection. We send QC photos to clients for approval before shipment."}}, {"@type": "Question", "name": "Can MTS help design my bag if I only have a concept?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — that is our ODM service. If you have a concept, brief, or reference images, we can develop the design, recommend materials, create techpacks, and produce samples. This is ideal for startups and fashion brands without in-house design teams."}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://mtsbag.vercel.app/#organization","name":"Minh Tùng Studio","alternateName":"MTS","url":"https://mtsbag.vercel.app","description":"OEM bag and backpack manufacturer in Ho Chi Minh City, Vietnam. Specializing in custom backpacks, sling bags, duffels, totes, and leather accessories for fashion brands, streetwear labels, and startups.","email":"tungnguyenhsr@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Ho Chi Minh City","addressCountry":"VN"},"founder":{"@type":"Person","name":"Nguyễn Mạnh Tùng","alternateName":"Tommy"},"knowsAbout":["OEM Manufacturing","Bag and Backpack Production","Leather Goods Manufacturing","Textile Manufacturing","ODM Services"],"numberOfEmployees":{"@type":"QuantitativeValue","minValue":10,"maxValue":50},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Manufacturing Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"OEM Manufacturing","description":"Manufacture your bag or backpack design. Send techpack or reference product. We source materials, produce samples, and manufacture bulk."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"ODM Design & Material Optimization","description":"Design consulting and material alternatives to reduce production costs by 10-20% while maintaining quality and feel."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Logo & Branding Services","description":"Logo engraving, embossing, heat transfer printing, and custom hardware branding for bags and accessories."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Packaging & Logistics","description":"Packaging per Shopee/TikTok standards and logistics coordination for domestic and international delivery."}}]},"makesOffer":[{"@id":"https://mtsbag.vercel.app/#product-backpack"},{"@id":"https://mtsbag.vercel.app/#product-sling"},{"@id":"https://mtsbag.vercel.app/#product-duffel"},{"@id":"https://mtsbag.vercel.app/#product-tote"},{"@id":"https://mtsbag.vercel.app/#product-leather-accessories"}],"contactPoint":[{"@type":"ContactPoint","contactType":"sales","telephone":"+84 773 108 320","contactOption":"TollFree","description":"Zalo / Phone (Tùng)","availableLanguage":["Vietnamese","English"]},{"@type":"ContactPoint","contactType":"sales","telephone":"+84 979 768 997","description":"WhatsApp (Lâm)","availableLanguage":["Vietnamese","English"]}],"email":"tungnguyenhsr@gmail.com"},{"@type":"Product","@id":"https://mtsbag.vercel.app/#product-backpack","name":"OEM Backpack Manufacturing","description":"Custom backpack production for fashion brands and streetwear labels. Daypacks, laptop backpacks, and fashion backpacks. Padded compartments, multi-pocket configurations, custom hardware.","category":"Backpack","material":["Canvas","PU Leather","Nylon","Polyester"],"manufacturer":{"@id":"https://mtsbag.vercel.app/#organization"},"offers":{"@type":"Offer","priceSpecification":{"@type":"UnitPriceSpecification","price":"0","priceCurrency":"USD","description":"B2B pricing varies by design, materials, quantity, and complexity. Contact for quote."},"eligibleQuantity":{"@type":"QuantitativeValue","minValue":300,"unitText":"Units"},"businessFunction":"http://purl.org/goodrelations/v1#Manufacture"}},{"@type":"Product","@id":"https://mtsbag.vercel.app/#product-sling","name":"OEM Sling & Crossbody Bag Manufacturing","description":"Custom sling bags and crossbody messenger bags for brands. Mini slings, shoulder bags, crossbody messengers. Adjustable straps, zip compartments, custom hardware.","category":"Sling Bag","material":["PU Leather","Canvas","Nylon"],"manufacturer":{"@id":"https://mtsbag.vercel.app/#organization"},"offers":{"@type":"Offer","priceSpecification":{"@type":"UnitPriceSpecification","price":"0","priceCurrency":"USD","description":"B2B pricing varies by design, materials, quantity, and complexity. Contact for quote."},"eligibleQuantity":{"@type":"QuantitativeValue","minValue":300,"unitText":"Units"},"businessFunction":"http://purl.org/goodrelations/v1#Manufacture"}},{"@type":"Product","@id":"https://mtsbag.vercel.app/#product-duffel","name":"OEM Duffel Bag Manufacturing","description":"Custom duffel bags and weekenders for brands. Gym duffels, travel weekender bags, mini duffles. Detachable straps, shoe compartments, coated fabric options.","category":"Duffel Bag","material":["Canvas","PU Leather","Coated Fabrics","Nylon"],"manufacturer":{"@id":"https://mtsbag.vercel.app/#organization"},"offers":{"@type":"Offer","priceSpecification":{"@type":"UnitPriceSpecification","price":"0","priceCurrency":"USD","description":"B2B pricing varies by design, materials, quantity, and complexity. Contact for quote."},"eligibleQuantity":{"@type":"QuantitativeValue","minValue":300,"unitText":"Units"},"businessFunction":"http://purl.org/goodrelations/v1#Manufacture"}},{"@type":"Product","@id":"https://mtsbag.vercel.app/#product-tote","name":"OEM Tote Bag Manufacturing","description":"Custom tote bag production for brands. Structured totes with magnetic closures, foldable totes for events and retail, shopping totes. Reinforced handles, custom lining.","category":"Tote Bag","material":["Canvas","PU Leather","Cotton"],"manufacturer":{"@id":"https://mtsbag.vercel.app/#organization"},"offers":{"@type":"Offer","priceSpecification":{"@type":"UnitPriceSpecification","price":"0","priceCurrency":"USD","description":"B2B pricing varies by design, materials, quantity, and complexity. Contact for quote."},"eligibleQuantity":{"@type":"QuantitativeValue","minValue":300,"unitText":"Units"},"businessFunction":"http://purl.org/goodrelations/v1#Manufacture"}},{"@type":"Product","@id":"https://mtsbag.vercel.app/#product-leather-accessories","name":"OEM Leather Accessory Manufacturing","description":"Custom leather accessories production for brands. Card holders, wallets, small pouches, keychains. Real or PU leather. Ideal for gift-with-purchase programs and accessory collections.","category":"Leather Accessory","material":["Genuine Leather","PU Leather"],"manufacturer":{"@id":"https://mtsbag.vercel.app/#organization"},"offers":{"@type":"Offer","priceSpecification":{"@type":"UnitPriceSpecification","price":"0","priceCurrency":"USD","description":"B2B pricing varies by design, materials, quantity, and complexity. Contact for quote."},"eligibleQuantity":{"@type":"QuantitativeValue","minValue":300,"unitText":"Units"},"businessFunction":"http://purl.org/goodrelations/v1#Manufacture"}},{"@type":"WebSite","@id":"https://mtsbag.vercel.app/#website","url":"https://mtsbag.vercel.app","name":"Minh Tùng Studio — OEM Bag & Backpack Manufacturer Vietnam","description":"Minh Tùng Studio specializes in OEM bag, backpack, and accessories manufacturing in Vietnam. Custom production for fashion brands from 300 pieces.","publisher":{"@id":"https://mtsbag.vercel.app/#organization"},"inLanguage":["vi","en"],"isAccessibleForFree":true}]}
 </script>
 </head>
 <body>
@@ -60,8 +611,6 @@ gtag('config', 'G-XXXXXXXXXX');
       <a href="#products" lang="en">Products</a>
       <a href="#quality" lang="vi">Chất Lượng</a>
       <a href="#quality" lang="en">Quality</a>
-      <a href="blog.html" lang="vi">Blog</a>
-      <a href="blog.html" lang="en">Blog</a>
       <a href="#contact" lang="vi">Liên Hệ</a>
       <a href="#contact" lang="en">Contact</a>
       <div class="nav-actions">
@@ -299,28 +848,6 @@ gtag('config', 'G-XXXXXXXXXX');
     <p class="section-sub" lang="vi">Từ OEM đến ODM — chúng tôi hiện thực hóa thiết kế của bạn.</p>
     <p class="section-sub" lang="en">From OEM to ODM — we turn your design into reality.</p>
 
-    <!-- ===== DIRECT ANSWER BLOCK FOR AEO ===== -->
-    <div class="answer-block" style="background:var(--color-surface);border:1px solid var(--color-border);border-left:4px solid var(--color-accent);padding:var(--space-md);margin-bottom:var(--space-lg);border-radius:var(--radius-md)">
-      <p lang="vi"><strong>OEM (Original Equipment Manufacturer)</strong> là gia công theo mẫu có sẵn: bạn gửi techpack hoặc sản phẩm mẫu, chúng tôi sản xuất đúng yêu cầu. <strong>ODM (Original Design Manufacturer)</strong> là thiết kế và tối ưu: bạn gửi brief, chúng tôi phát triển sản phẩm, chọn chất liệu, tối ưu chi phí. MTS làm cả hai — MOQ từ 300 sản phẩm, mẫu thử miễn phí.</p>
-      <p lang="en"><strong>OEM (Original Equipment Manufacturer)</strong> means we manufacture your existing design — you provide the techpack or reference product, we produce it. <strong>ODM (Original Design Manufacturer)</strong> means we help develop your product from concept — you share a brief, we recommend materials, design the construction, and optimize costs 10–20%. MTS offers both with MOQ from 300 pieces and free trial samples.</p>
-    </div>
-
-    <!-- ===== OEM vs ODM COMPARISON TABLE ===== -->
-    <div style="overflow-x:auto;margin-bottom:var(--space-lg)">
-      <table class="lead-time-table">
-        <thead>
-          <tr><th></th><th lang="vi">OEM — Gia Công Theo Mẫu</th><th lang="en">OEM — Manufacture Your Design</th><th lang="vi">ODM — Tối Ưu & Phát Triển</th><th lang="en">ODM — Design & Development</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong lang="vi">Bạn cần</strong><strong lang="en">You need</strong></td><td lang="vi">Techpack / ảnh mẫu / quy cách</td><td lang="en">Techpack / reference / spec sheet</td><td lang="vi">Brief / ý tưởng / moodboard</td><td lang="en">Brief / concept / moodboard</td></tr>
-          <tr><td><strong lang="vi">MTS làm</strong><strong lang="en">MTS does</strong></td><td lang="vi">Tìm vật liệu, tạo mẫu, sản xuất</td><td lang="en">Source materials, sample, produce</td><td lang="vi">Thiết kế, chọn chất liệu, tối ưu 10–20%</td><td lang="en">Design, material selection, 10–20% cost optimization</td></tr>
-          <tr><td><strong lang="vi">Phù hợp</strong><strong lang="en">Best for</strong></td><td lang="vi">Brand có sẵn thiết kế</td><td lang="en">Brands with existing designs</td><td lang="vi">Startup / brand chưa có đội ngũ thiết kế</td><td lang="en">Startups / brands without design teams</td></tr>
-          <tr><td><strong>MOQ</strong></td><td colspan="2">300 pcs / SKU</td><td colspan="2">300 pcs / SKU</td></tr>
-          <tr><td><strong lang="vi">Mẫu thử</strong><strong lang="en">Sample</strong></td><td colspan="2" lang="vi">Miễn phí (phí mẫu trừ vào đơn hàng)</td><td colspan="2" lang="en">Free (fee deducted from production order)</td></tr>
-        </tbody>
-      </table>
-    </div>
-
     <div class="services-grid">
       <div class="service-card">
         <h4 lang="vi"> OEM — Gia Công Theo Mẫu</h4>
@@ -341,9 +868,6 @@ gtag('config', 'G-XXXXXXXXXX');
         <p lang="en">Logo engraving/embossing, heat transfer printing, packaging per Shopee/TikTok standards, logistics coordination.</p>
       </div>
     </div>
-
-    <p lang="vi" style="margin-bottom:var(--space-lg)">📖 <a href="blog.html" style="text-decoration:underline;color:var(--color-accent)">Đọc hướng dẫn đầy đủ trên Blog: OEM bag manufacturer Vietnam & Cách bắt đầu thương hiệu túi →</a></p>
-    <p lang="en" style="margin-bottom:var(--space-lg)">📖 <a href="blog.html" style="text-decoration:underline;color:var(--color-accent)">Read our full guides: OEM Bag Manufacturer Vietnam & How to Start a Bag Brand →</a></p>
 
     <h3 style="font-size:1.25rem;font-weight:700;margin:var(--space-lg) 0 var(--space-md)" lang="vi">MOQ & Bảng Giá</h3>
     <h3 style="font-size:1.25rem;font-weight:700;margin:var(--space-lg) 0 var(--space-md)" lang="en">MOQ & Pricing</h3>
@@ -386,22 +910,6 @@ gtag('config', 'G-XXXXXXXXXX');
     <h2 class="section-title" lang="en">What We Make</h2>
     <p class="section-sub" lang="vi">Danh mục sản phẩm cho đối tác B2B.</p>
     <p class="section-sub" lang="en">Product categories for B2B partners.</p>
-
-    <!-- ===== MATERIAL COMPARISON TABLE FOR AEO ===== -->
-    <div style="overflow-x:auto;margin-bottom:var(--space-lg)">
-      <table class="lead-time-table">
-        <thead>
-          <tr><th lang="vi">Chất Liệu</th><th lang="en">Material</th><th lang="vi">Độ Bền</th><th lang="en">Durability</th><th lang="vi">Giá Thành</th><th lang="en">Cost</th><th lang="vi">Phù Hợp</th><th lang="en">Best For</th></tr>
-        </thead>
-        <tbody>
-          <tr><td lang="vi">Canvas (Vải bố)</td><td>Canvas</td><td lang="vi">Cao</td><td>High</td><td lang="vi">Thấp</td><td>Low</td><td lang="vi">Tote, Balo, Túi thường ngày</td><td>Totes, backpacks, daily bags</td></tr>
-          <tr><td lang="vi">Da PU</td><td>PU Leather</td><td lang="vi">Trung bình</td><td>Medium</td><td lang="vi">Trung bình</td><td>Medium</td><td lang="vi">Sling, Tote cấu trúc, Duffel</td><td>Slings, structured totes, duffels</td></tr>
-          <tr><td lang="vi">Da thật</td><td>Genuine Leather</td><td lang="vi">Rất cao</td><td>Very High</td><td lang="vi">Cao</td><td>High</td><td lang="vi">Phụ kiện da, túi cao cấp</td><td>Accessories, premium bags</td></tr>
-          <tr><td lang="vi">Nylon / Ripstop</td><td>Nylon / Ripstop</td><td lang="vi">Cao</td><td>High</td><td lang="vi">Thấp</td><td>Low</td><td lang="vi">Balo kỹ thuật, túi thể thao</td><td>Technical backpacks, gym bags</td></tr>
-          <tr><td lang="vi">Polyester</td><td>Polyester</td><td lang="vi">Trung bình</td><td>Medium</td><td lang="vi">Rất thấp</td><td>Very Low</td><td lang="vi">Túi sự kiện, túi quảng cáo</td><td>Event bags, promo bags</td></tr>
-        </tbody>
-      </table>
-    </div>
     <div class="prod-grid">
       <div class="prod-card">
         <img class="ph-img" src="images/product-backpack-1.png" alt="MTS bag sample — placeholder (ảnh minh họa, chưa có ảnh thật / illustration, not the actual product photo)" loading="lazy">
