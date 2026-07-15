@@ -751,17 +751,6 @@ nav.nav-scrolled .nav-logo-text{font-size:0.95rem}
 .author-info span{font-size:0.8rem;color:var(--muted)}
 
 /* prev / next pager */
-.blog-pager{display:flex;gap:var(--space-md);flex-wrap:wrap;margin-top:var(--space-xl)}
-.blog-pager a{
-  flex:1 1 240px;border:1px solid var(--border);border-radius:var(--radius-lg);
-  padding:var(--space-md);background:var(--color-surface);
-  transition:border-color var(--motion-fast),box-shadow var(--motion-base) var(--ease-out);
-}
-.blog-pager a:hover{border-color:var(--gold);box-shadow:var(--elevation-2)}
-.blog-pager .pager-label{font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
-.blog-pager .pager-title{font-size:1rem;font-weight:700;color:var(--primary);transition:color var(--motion-fast)}
-.blog-pager a:hover .pager-title{color:var(--gold)}
-
 /* stronger table header rule */
 .blog-post .blog-table-wrap th{border-bottom:2px solid var(--primary)}
 
